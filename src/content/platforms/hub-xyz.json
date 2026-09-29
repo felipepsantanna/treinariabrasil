@@ -1,0 +1,77 @@
+{
+  "id": "hub-xyz",
+  "status": "published",
+  "featured": true,
+  "name": "Hub.xyz",
+  "logo": "/images/platforms/hub-xyz.svg",
+  "rating": 4.4,
+  "reviewsCount": 182,
+  "category": "Vídeo doméstico + comercial",
+  "badge": "O que estou mais usando",
+  "tags": ["com-indicacao", "tem-bonus"],
+  "pricing": {
+    "min": 5,
+    "max": 8,
+    "currency": "USD",
+    "unit": "hora",
+    "displayLabel": "$5 a $8"
+  },
+  "affiliateUrl": "https://ai.hub.xyz/r/TV7MT7M4",
+  "summary": "Plataforma mais estabelecida e madura do nicho, com histórico consistente de pagamento.",
+  "pros": [
+    "Plataforma mais estabelecida e madura, com histórico consistente de pagamento e sem instabilidades relatadas",
+    "Agora aceita tarefas comerciais (no trabalho) com dezenas de categorias novas: hotelaria, restaurantes, construção, indústria e mais",
+    "O vídeo aparece na plataforma mais rápido que nas outras",
+    "Saque semanal em Pix, mínimo baixo (R$ 25)",
+    "Suporte ativo no Telegram"
+  ],
+  "cons": [
+    "Pagamento base é o que paga menos ($5/h), mas sobe pra $7/h nas turbinadas residenciais e $8/h nas comerciais"
+  ],
+  "technicalRequirements": {
+    "duration": "Até 30 min",
+    "format": "Horizontal, 1080p",
+    "hands": "As duas mãos visíveis",
+    "zoom": "0,5 (grande angular)",
+    "compatiblePhones": {
+      "iphone": "12 a 15 (todas as variantes), linha 16 (exceto 16e) e linha 17 (exceto 17e). iPhone 11 não é compatível.",
+      "pixel": "6, 7, 8 e 9 (e versões Pro)",
+      "galaxyS": "S21 a S24 (e variantes Plus/Ultra), além de S25+ e S26+"
+    }
+  },
+  "payment": {
+    "minWithdrawal": "R$ 25",
+    "avgTime": "Semanal",
+    "methods": ["Pix"]
+  },
+  "bonuses": [
+    { "label": "Turbinadas residenciais", "value": "$7/h (R$ 35/h) · cap de 30h/mês" },
+    { "label": "Turbinadas comerciais", "value": "$8/h (R$ 40/h)" },
+    { "label": "1h gravada", "value": "Bônus de R$ 15" },
+    { "label": "2h gravada", "value": "Bilhete de sorteio de R$ 2.500" },
+    { "label": "5h gravada", "value": "Bônus de R$ 10" },
+    { "label": "10h gravada", "value": "Bilhete de sorteio" },
+    { "label": "20h gravada", "value": "Bilhete de sorteio de R$ 2.500" }
+  ],
+  "support": {
+    "channel": "Telegram",
+    "active": true
+  },
+  "signupSteps": [
+    "Acesse o link de indicação oficial",
+    "Cadastre seu e-mail e verifique seu modelo de celular",
+    "Adquira ou configure seu suporte de cabeça para gravações em primeira pessoa",
+    "Instale o aplicativo oficial e envie o vídeo de teste",
+    "Após aprovação, comece a realizar e enviar as tarefas liberadas"
+  ],
+  "faq": [
+    {
+      "question": "Como recebo o pagamento da Hub.xyz no Brasil?",
+      "answer": "Os saques são feitos de forma semanal via Pix diretamente na sua conta bancária brasileira cadastrada, com limite mínimo de apenas R$ 25."
+    },
+    {
+      "question": "Preciso falar inglês para gravar na Hub.xyz?",
+      "answer": "Não. As tarefas consistem em gravações de atividades físicas e visuais do dia a dia (ex: cozinhar, limpar, organizar) com as duas mãos visíveis, sem necessidade de áudio ou conversação."
+    }
+  ]
+}

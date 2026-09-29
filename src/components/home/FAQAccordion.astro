@@ -1,0 +1,75 @@
+---
+export const faqItems = [
+  {
+    q: 'Dá pra ganhar dinheiro treinando IA de verdade?',
+    a: 'Sim. Empresas globais de robótica e inteligência artificial investem bilhões de dólares na aquisição de dados do mundo real. Como robôs precisam aprender a manipular objetos domésticos e operacionais, essas empresas contratam pessoas comuns para gravar tarefas em vídeo POV (primeira pessoa) e remuneram por hora em dólar ou real.'
+  },
+  {
+    q: 'Precisa de experiência prévia para começar?',
+    a: 'Zero experiência. Não é necessário saber programar nem dominar inglês. As tarefas consistem em ações naturais do seu cotidiano (lavar pratos, preparar alimentos, arrumar mesas, varrer ou embalar objetos). Basta seguir as diretrizes simples de enquadramento (manter as duas mãos visíveis e boa iluminação).'
+  },
+  {
+    q: 'Quanto tempo demora para receber os pagamentos?',
+    a: 'A maior parte das plataformas recomendadas, como a Hub.xyz, realiza repasses semanais automáticos via Pix com saque mínimo de apenas R$ 25. Outras plataformas atuam com calendários quinzenais ou mensais via Pix, PayPal ou Payoneer.'
+  },
+  {
+    q: 'É seguro? Preciso mostrar meu rosto?',
+    a: 'É 100% seguro e anônimo. Os vídeos são focados exclusivamente na manipulação de objetos pelas mãos (visão egocêntrica). Você nunca precisa mostrar o seu rosto. Além disso, as diretrizes de privacidade proíbem expressamente a gravação de documentos pessoais, senhas ou rostos de terceiros.'
+  },
+  {
+    q: 'Preciso pagar algo para começar a trabalhar?',
+    a: 'Não. O cadastro em todas as plataformas recomendadas em nosso site é 100% gratuito. Nunca pague taxa de inscrição ou compre cursos obrigatórios para ter acesso às vagas. O único investimento opcional inicial é um suporte elástico de cabeça para celular (cerca de R$ 30 a R$ 50 em sites como Mercado Livre ou Shopee).'
+  }
+];
+
+// Gerar Schema.org FAQPage JSON-LD
+export const faqSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  'mainEntity': faqItems.map((item) => ({
+    '@type': 'Question',
+    'name': item.q,
+    'acceptedAnswer': {
+      '@type': 'Answer',
+      'text': item.a
+    }
+  }))
+};
+---
+
+<section id="faq" class="py-16 lg:py-24 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+  <div class="text-center mb-12">
+    <span class="text-xs font-bold uppercase tracking-wider text-emerald-800 bg-emerald-50 px-3 py-1 rounded-full border border-emerald-200">
+      Tire Suas Dúvidas
+    </span>
+    <h2 class="text-3xl sm:text-4xl font-extrabold text-slate-900 mt-4">
+      Perguntas Frequentes sobre Treinar IA
+    </h2>
+    <p class="text-slate-600 text-base sm:text-lg mt-2 font-normal">
+      Respostas diretas e transparentes sobre o funcionamento das plataformas e remuneração.
+    </p>
+  </div>
+
+  <div class="space-y-4">
+    {faqItems.map((item, index) => (
+      <details class="group bg-white rounded-2xl border border-slate-200/90 p-6 open:border-emerald-300 open:shadow-md transition-all shadow-sm">
+        <summary class="flex justify-between items-center font-bold text-slate-900 cursor-pointer list-none text-base sm:text-lg select-none">
+          <span class="group-hover:text-emerald-700 transition-colors flex items-center gap-3">
+            <span class="text-xs font-bold text-emerald-800 bg-emerald-50 px-2.5 py-1 rounded border border-emerald-200">
+              0{index + 1}
+            </span>
+            {item.q}
+          </span>
+          <span class="w-8 h-8 rounded-lg bg-slate-100 text-slate-600 flex items-center justify-center transition-transform duration-200 group-open:rotate-180 group-open:text-emerald-700 group-open:bg-emerald-50 border border-slate-200 flex-shrink-0 ml-3">
+            <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M19 9l-7 7-7-7" />
+            </svg>
+          </span>
+        </summary>
+        <p class="mt-4 text-sm sm:text-base text-slate-600 leading-relaxed pl-10 border-t border-slate-100 pt-4 font-normal">
+          {item.a}
+        </p>
+      </details>
+    ))}
+  </div>
+</section>

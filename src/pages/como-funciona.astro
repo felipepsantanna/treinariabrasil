@@ -1,0 +1,148 @@
+---
+import BaseLayout from '@/layouts/BaseLayout.astro';
+import StepByStep from '@/components/home/StepByStep.astro';
+import FAQAccordion from '@/components/home/FAQAccordion.astro';
+
+const title = "Como Treinar IA: Guia Completo para Ganhar em Dólar";
+const description = "Entenda como funciona o treinamento de IA com vídeos caseiros. Veja requisitos técnicos, celulares aceitos, suporte de cabeça e dicas de aprovação.";
+
+const breadcrumbJsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'BreadcrumbList',
+  'itemListElement': [
+    {
+      '@type': 'ListItem',
+      'position': 1,
+      'name': 'Início',
+      'item': 'https://treinariabrasil.com.br/'
+    },
+    {
+      '@type': 'ListItem',
+      'position': 2,
+      'name': 'Como Funciona',
+      'item': 'https://treinariabrasil.com.br/como-funciona'
+    }
+  ]
+};
+---
+
+<BaseLayout
+  title={title}
+  description={description}
+  jsonLd={breadcrumbJsonLd}
+>
+  <div class="py-12 sm:py-20 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 space-y-16">
+    
+    <!-- Hero / Intro -->
+    <div class="space-y-4">
+      <nav class="flex items-center gap-2 text-xs text-slate-500" aria-label="Navegação em trilha">
+        <a href="/" class="hover:text-slate-900 transition-colors">Início</a>
+        <span>/</span>
+        <span class="text-emerald-700 font-bold">Como Funciona</span>
+      </nav>
+
+      <span class="text-xs font-bold uppercase tracking-wider text-emerald-800 bg-emerald-50 px-3 py-1 rounded-full border border-emerald-200">
+        Manual do Iniciante
+      </span>
+      <h1 class="text-3xl sm:text-5xl font-extrabold text-slate-900 leading-tight">
+        Como Funciona o Treinamento de IA na Prática?
+      </h1>
+      <p class="text-slate-600 text-lg leading-relaxed font-normal">
+        Tudo o que você precisa saber para transformar atividades comuns da sua rotina diária em remuneração em dólar com saques semanais via Pix.
+      </p>
+    </div>
+
+    <!-- Featured Snippet Box -->
+    <div class="p-6 rounded-2xl bg-white border border-slate-200 shadow-sm space-y-3">
+      <h2 class="text-xl font-bold text-slate-900 flex items-center gap-2">
+        <span class="text-emerald-600">💡</span> O que é treinar IA com vídeos do dia a dia?
+      </h2>
+      <p class="text-sm sm:text-base text-slate-700 leading-relaxed font-normal">
+        Empresas de tecnologia e robótica humanoide precisam treinar inteligências artificiais para interagir com o mundo físico real. Para isso, contratam pessoas comuns para gravar tarefas cotidianas em perspectiva de primeira pessoa (POV). Você veste um suporte com seu celular na cabeça, realiza atividades como lavar pratos, dobrar roupas ou cozinhar, e recebe entre <strong>US$ 5,00 e US$ 8,00 por hora</strong> aprovada.
+      </p>
+    </div>
+
+    <!-- Detail Sections -->
+    <div class="space-y-12">
+      
+      <!-- Section 1 -->
+      <section class="space-y-4 bg-white p-8 rounded-3xl border border-slate-200 shadow-sm">
+        <h2 class="text-2xl font-bold text-slate-900">1. Por que robôs precisam desses vídeos?</h2>
+        <p class="text-sm sm:text-base text-slate-600 leading-relaxed">
+          Ao contrário de textos ou imagens estáticas que abundam na internet, vídeos gravados do ponto de vista de quem está manuseando objetos são raros e extremamente valiosos para algoritmos de visão computacional.
+        </p>
+        <p class="text-sm sm:text-base text-slate-600 leading-relaxed">
+          Para que um braço robótico aprenda a segurar uma esponja sem esmagá-la ou pegar um copo de vidro sem derrubá-lo, o algoritmo precisa analisar milhares de horas de mãos humanas executando esses gestos em diferentes ambientes, iluminações e ângulos.
+        </p>
+      </section>
+
+      <!-- Section 2: Equipment -->
+      <section class="space-y-6">
+        <h2 class="text-2xl font-bold text-slate-900">2. Equipamentos Necessários</h2>
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+          <div class="p-6 rounded-2xl bg-white border border-slate-200 shadow-sm space-y-2">
+            <h3 class="text-base font-bold text-emerald-700">Suporte de Cabeça (Head Strap)</h3>
+            <p class="text-sm text-slate-600 leading-relaxed">
+              Uma faixa elástica ajustável com encaixe para smartphone. Custa entre R$ 25 e R$ 50 em sites de e-commerce e garante que a câmera fique estável e acompanhe a direção do seu olhar.
+            </p>
+          </div>
+          <div class="p-6 rounded-2xl bg-white border border-slate-200 shadow-sm space-y-2">
+            <h3 class="text-base font-bold text-emerald-700">Smartphone Homologado</h3>
+            <p class="text-sm text-slate-600 leading-relaxed">
+              Modelos com gravação Full HD (1080p) e lente grande angular (0.5x). A maioria dos iPhones modernos (12 ao 17), Samsung Galaxy linha S (S21 ao S26) e Google Pixel são aceitos pelas plataformas.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <!-- Section 3: Golden Rules -->
+      <section class="p-8 rounded-3xl bg-white border border-slate-200 shadow-sm space-y-4">
+        <h2 class="text-2xl font-bold text-slate-900">3. As 4 Regras de Ouro para Aprovação Imediata</h2>
+        <ul class="space-y-3.5 text-sm sm:text-base text-slate-700">
+          <li class="flex items-start gap-3">
+            <span class="text-emerald-600 font-bold">1.</span>
+            <span><strong>Mãos sempre no enquadramento:</strong> Os robôs aprendem com a interação motora. Ambas as mãos precisam estar visíveis na maior parte do vídeo.</span>
+          </li>
+          <li class="flex items-start gap-3">
+            <span class="text-emerald-600 font-bold">2.</span>
+            <span><strong>Boa iluminação:</strong> Ligue as luzes do cômodo ou grave próximo a janelas durante o dia. Evite sombras pesadas sobre o local da tarefa.</span>
+          </li>
+          <li class="flex items-start gap-3">
+            <span class="text-emerald-600 font-bold">3.</span>
+            <span><strong>Movimentos de cabeça suaves:</strong> Olhe para a tarefa com naturalidade, sem girar ou balançar o pescoço bruscamente.</span>
+          </li>
+          <li class="flex items-start gap-3">
+            <span class="text-emerald-600 font-bold">4.</span>
+            <span><strong>Privacidade absoluta:</strong> Não grave cartões bancários, documentos, formulários com senhas ou rostos de outras pessoas.</span>
+          </li>
+        </ul>
+      </section>
+
+    </div>
+
+    <!-- Step By Step embed -->
+    <StepByStep />
+
+    <!-- FAQ Accordion -->
+    <FAQAccordion />
+
+    <!-- Final CTA -->
+    <div class="p-8 rounded-3xl bg-emerald-50 border border-emerald-200 text-center space-y-4 shadow-sm">
+      <h3 class="text-2xl font-bold text-slate-900">
+        Pronto para dar o primeiro passo?
+      </h3>
+      <p class="text-sm text-slate-600 max-w-xl mx-auto">
+        Conheça as plataformas que estão aprovando cadastros no Brasil hoje mesmo.
+      </p>
+      <div class="pt-2">
+        <a
+          href="/plataformas"
+          class="inline-flex items-center justify-center px-8 py-3.5 rounded-xl text-sm font-bold text-white bg-emerald-600 hover:bg-emerald-700 transition-colors shadow-md shadow-emerald-600/20"
+        >
+          Ver plataformas recomendadas
+        </a>
+      </div>
+    </div>
+
+  </div>
+</BaseLayout>

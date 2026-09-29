@@ -1,0 +1,134 @@
+---
+const navLinks = [
+  { href: '/como-funciona', label: 'Como Funciona' },
+  { href: '/plataformas', label: 'Plataformas' },
+  { href: '/#simulador', label: 'Simulador' },
+  { href: '/vagas', label: 'Vagas' },
+  { href: '/blog', label: 'Blog' },
+  { href: '/#faq', label: 'FAQ' },
+];
+
+const currentPath = Astro.url.pathname;
+---
+
+<header class="fixed top-0 left-0 right-0 z-50 bg-white/95 backdrop-blur-md border-b border-slate-200/80 transition-all duration-200 shadow-sm">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="flex items-center justify-between h-20">
+      
+      <!-- Brand Logo -->
+      <a href="/" class="flex items-center gap-3 group focus:outline-none focus:ring-2 focus:ring-emerald-500 rounded-lg p-1">
+        <div class="w-10 h-10 rounded-xl bg-gradient-to-br from-emerald-500 to-teal-700 flex items-center justify-center text-white font-extrabold shadow-md shadow-emerald-500/20 group-hover:scale-105 transition-transform duration-200">
+          <svg class="w-6 h-6 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M13 10V3L4 14h7v7l9-11h-7z" />
+          </svg>
+        </div>
+        <div>
+          <span class="text-xl font-bold font-display text-slate-900 tracking-tight flex items-center gap-1.5">
+            Treinar IA <span class="text-emerald-600 font-extrabold">Brasil</span>
+          </span>
+          <span class="block text-[10px] text-slate-500 font-semibold tracking-wider uppercase -mt-0.5">Renda extra com IA</span>
+        </div>
+      </a>
+
+      <!-- Desktop Navigation Links (Clean & readable) -->
+      <nav class="hidden md:flex items-center gap-1.5 lg:gap-2" aria-label="Navegação Principal">
+        {navLinks.map((link) => {
+          const isActive = currentPath === link.href || (link.href !== '/' && currentPath.startsWith(link.href) && !link.href.includes('#'));
+          return (
+            <a
+              href={link.href}
+              class={`px-3 py-1.5 text-sm font-semibold rounded-lg transition-all duration-150 ${
+                isActive
+                  ? 'text-emerald-700 bg-emerald-50 border border-emerald-200 font-bold'
+                  : 'text-slate-700 hover:text-emerald-600 hover:bg-slate-100/80'
+              }`}
+            >
+              {link.label}
+            </a>
+          );
+        })}
+      </nav>
+
+      <!-- CTA Desktop Button -->
+      <div class="hidden md:flex items-center gap-4">
+        <a
+          href="/plataformas"
+          class="inline-flex items-center justify-center px-4 py-2.5 text-sm font-bold rounded-xl text-white bg-emerald-600 hover:bg-emerald-700 transition-all duration-200 shadow-sm shadow-emerald-600/20 hover:shadow-md hover:-translate-y-0.5"
+        >
+          Ver plataformas que pagam
+          <svg class="w-4 h-4 ml-1.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M9 5l7 7-7 7" />
+          </svg>
+        </a>
+      </div>
+
+      <!-- Mobile Menu Button -->
+      <div class="flex md:hidden">
+        <button
+          type="button"
+          id="mobile-menu-btn"
+          class="p-2.5 rounded-lg text-slate-700 hover:text-slate-900 hover:bg-slate-100 focus:outline-none focus:ring-2 focus:ring-emerald-500 border border-slate-200"
+          aria-label="Abrir menu de navegação"
+          aria-expanded="false"
+        >
+          <svg class="w-6 h-6 block" id="menu-icon-open" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+          </svg>
+          <svg class="w-6 h-6 hidden" id="menu-icon-close" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+          </svg>
+        </button>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- Mobile Drawer Menu -->
+  <div id="mobile-menu" class="hidden md:hidden border-b border-slate-200 bg-white/98 backdrop-blur-xl px-4 pt-3 pb-6 space-y-3 shadow-lg">
+    <div class="flex flex-col space-y-1">
+      {navLinks.map((link) => (
+        <a
+          href={link.href}
+          class="mobile-nav-link px-3.5 py-2.5 text-base font-semibold rounded-lg text-slate-700 hover:text-emerald-700 hover:bg-slate-100"
+        >
+          {link.label}
+        </a>
+      ))}
+    </div>
+    <div class="pt-2">
+      <a
+        href="/plataformas"
+        class="w-full inline-flex items-center justify-center px-4 py-3 text-base font-bold rounded-xl text-white bg-emerald-600 hover:bg-emerald-700 transition-colors shadow-md"
+      >
+        Ver plataformas que pagam
+      </a>
+    </div>
+  </div>
+</header>
+
+<script>
+  const btn = document.getElementById('mobile-menu-btn');
+  const menu = document.getElementById('mobile-menu');
+  const iconOpen = document.getElementById('menu-icon-open');
+  const iconClose = document.getElementById('menu-icon-close');
+  const navLinks = document.querySelectorAll('.mobile-nav-link');
+
+  if (btn && menu && iconOpen && iconClose) {
+    btn.addEventListener('click', () => {
+      const isExpanded = btn.getAttribute('aria-expanded') === 'true';
+      btn.setAttribute('aria-expanded', (!isExpanded).toString());
+      menu.classList.toggle('hidden');
+      iconOpen.classList.toggle('hidden');
+      iconClose.classList.toggle('hidden');
+    });
+
+    navLinks.forEach((link) => {
+      link.addEventListener('click', () => {
+        menu.classList.add('hidden');
+        iconOpen.classList.remove('hidden');
+        iconClose.classList.add('hidden');
+        btn.setAttribute('aria-expanded', 'false');
+      });
+    });
+  }
+</script>

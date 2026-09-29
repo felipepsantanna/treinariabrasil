@@ -1,0 +1,20 @@
+{
+  "id": "hub-comercial",
+  "platformId": "hub-xyz",
+  "platformName": "Hub.xyz",
+  "title": "Gravador de Tarefas Comerciais (Restaurante, Hotelaria e Indústria)",
+  "status": "aberta",
+  "category": "Comercial / Trabalho",
+  "remuneration": "$8,00 / hora (~R$ 46,00/h)",
+  "currency": "USD",
+  "spots": "Vagas abertas para novos cadastros",
+  "updatedAt": "23/09/2026",
+  "requirements": [
+    "Celular compatível (iPhone 12 a 17, Pixel 6 a 9, ou Galaxy S21 a S26)",
+    "Suporte de cabeça ajustável para gravação POV",
+    "Gravação de atividades cotidianas em locais de trabalho autorizados",
+    "Vídeo em 1080p horizontal com as duas mãos visíveis"
+  ],
+  "description": "Tarefas turbinadas comerciais para gravação de atividades e procedimentos operacionais no trabalho (hotelaria, restaurantes, montagem, logística). Maior taxa por hora da plataforma.",
+  "applyUrl": "https://ai.hub.xyz/r/TV7MT7M4"
+}

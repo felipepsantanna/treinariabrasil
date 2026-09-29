@@ -1,0 +1,75 @@
+---
+import type { CollectionEntry } from 'astro:content';
+
+export interface Props {
+  vaga: CollectionEntry<'vagas'>['data'];
+}
+
+const { vaga } = Astro.props;
+
+const statusBadge = {
+  aberta: { text: 'Inscrições Abertas', class: 'bg-emerald-50 text-emerald-800 border-emerald-200' },
+  fechada: { text: 'Encerrada', class: 'bg-rose-50 text-rose-800 border-rose-200' },
+  em_breve: { text: 'Lista de Espera', class: 'bg-amber-50 text-amber-800 border-amber-200' }
+}[vaga.status];
+---
+
+<div class="bg-white rounded-2xl p-6 sm:p-7 border border-slate-200/90 shadow-sm hover:border-emerald-300 hover:shadow-md transition-all flex flex-col justify-between space-y-5">
+  <div>
+    <!-- Header with platform & status -->
+    <div class="flex items-center justify-between gap-2 mb-3">
+      <span class="text-xs font-bold text-slate-500 uppercase tracking-wider">
+        {vaga.platformName}
+      </span>
+      <span class={`text-xs font-bold px-3 py-1 rounded-full border ${statusBadge.class}`}>
+        {statusBadge.text}
+      </span>
+    </div>
+
+    <!-- Title -->
+    <h3 class="text-xl font-bold text-slate-900 group-hover:text-emerald-700 transition-colors">
+      {vaga.title}
+    </h3>
+
+    <!-- Remuneration -->
+    <div class="mt-2.5 text-lg font-black text-emerald-600 font-display">
+      {vaga.remuneration}
+    </div>
+
+    <p class="text-sm text-slate-600 mt-2 line-clamp-2 font-normal">
+      {vaga.description}
+    </p>
+
+    <!-- Requirements list -->
+    {vaga.requirements && vaga.requirements.length > 0 && (
+      <div class="mt-4 pt-3 border-t border-slate-100">
+        <span class="text-xs font-bold text-slate-500 block mb-1.5">Requisitos principais:</span>
+        <ul class="space-y-1.5">
+          {vaga.requirements.slice(0, 2).map((req) => (
+            <li class="text-xs text-slate-700 flex items-start gap-2 font-normal">
+              <span class="text-emerald-600 font-bold">•</span>
+              <span>{req}</span>
+            </li>
+          ))}
+        </ul>
+      </div>
+    )}
+  </div>
+
+  <div class="pt-3 flex items-center justify-between border-t border-slate-100 text-xs">
+    <span class="text-xs text-slate-400 font-medium">Atualizado: {vaga.updatedAt}</span>
+    
+    <!-- PLACEHOLDER: O link de inscrição utiliza o link de afiliado da plataforma -->
+    <a
+      href={vaga.applyUrl}
+      target="_blank"
+      rel="noopener noreferrer"
+      class="inline-flex items-center gap-1.5 font-bold text-sm text-emerald-600 hover:text-emerald-700 transition-colors"
+    >
+      Candidatar-se
+      <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M14 5l7 7m0 0l-7 7m7-7H3" />
+      </svg>
+    </a>
+  </div>
+</div>

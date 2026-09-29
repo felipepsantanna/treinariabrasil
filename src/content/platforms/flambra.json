@@ -1,0 +1,58 @@
+{
+  "id": "flambra",
+  "status": "draft",
+  "featured": false,
+  "name": "Flambra",
+  "logo": "/images/platforms/flambra.svg",
+  "rating": 4.3,
+  "reviewsCount": null,
+  "category": "Vídeo doméstico",
+  "badge": "Única brasileira",
+  "tags": ["com-indicacao"],
+  "pricing": {
+    "min": 25,
+    "max": 25,
+    "currency": "BRL",
+    "unit": "hora",
+    "displayLabel": "R$ 25"
+  },
+  "affiliateUrl": "https://flambra.com.br/?ref=PLACEHOLDER_SEU_LINK_AQUI",
+  "summary": "Plataforma 100% brasileira focada na coleta de tarefas domésticas para modelos de visão computacional.",
+  "pros": [
+    "Interface e suporte totalmente em português",
+    "Pagamento em reais via Pix",
+    "Tarefas simples de rotina brasileira"
+  ],
+  "cons": [
+    "Volume de tarefas menor comparado às plataformas internacionais",
+    "Remuneração fixa em R$ 25/hora"
+  ],
+  "technicalRequirements": {
+    "duration": "15 a 30 min",
+    "format": "Horizontal, 1080p",
+    "hands": "As duas mãos visíveis",
+    "zoom": "1.0 ou grande angular",
+    "compatiblePhones": {
+      "iphone": "Modelos recentes com câmera Full HD",
+      "pixel": null,
+      "galaxyS": "Linha Galaxy moderna"
+    }
+  },
+  "payment": {
+    "minWithdrawal": "R$ 50",
+    "avgTime": "Quinzenal",
+    "methods": ["Pix"]
+  },
+  "bonuses": [],
+  "support": {
+    "channel": "WhatsApp / Email",
+    "active": true
+  },
+  "signupSteps": [
+    "Acesse o link de cadastro oficial",
+    "Complete os dados de perfil e aparelho",
+    "Envie vídeo teste de rotina",
+    "Inicie as gravações das campanhas abertas"
+  ],
+  "faq": []
+}

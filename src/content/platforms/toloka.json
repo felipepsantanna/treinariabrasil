@@ -1,0 +1,46 @@
+{
+  "id": "toloka",
+  "status": "draft",
+  "featured": false,
+  "name": "Toloka",
+  "logo": "/images/platforms/toloka.svg",
+  "rating": null,
+  "reviewsCount": null,
+  "category": "Vídeo doméstico",
+  "badge": null,
+  "tags": [],
+  "pricing": {
+    "min": null,
+    "max": 6,
+    "currency": "USD",
+    "unit": "hora",
+    "displayLabel": "até $6/h"
+  },
+  "affiliateUrl": "https://toloka.ai/?ref=PLACEHOLDER_SEU_LINK_AQUI",
+  "summary": "Plataforma global de microtarefas e coleta de dados multimídia para inteligência artificial.",
+  "pros": [],
+  "cons": [],
+  "technicalRequirements": {
+    "duration": null,
+    "format": null,
+    "hands": null,
+    "zoom": null,
+    "compatiblePhones": {
+      "iphone": null,
+      "pixel": null,
+      "galaxyS": null
+    }
+  },
+  "payment": {
+    "minWithdrawal": null,
+    "avgTime": null,
+    "methods": []
+  },
+  "bonuses": [],
+  "support": {
+    "channel": null,
+    "active": false
+  },
+  "signupSteps": [],
+  "faq": []
+}

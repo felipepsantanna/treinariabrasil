@@ -1,0 +1,46 @@
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800;900&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    color-scheme: light;
+  }
+
+  body {
+    @apply bg-slate-50 text-slate-800 font-sans antialiased selection:bg-brand-accent selection:text-white min-h-screen flex flex-col;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-display text-slate-900 tracking-tight;
+  }
+
+  p {
+    @apply text-slate-600;
+  }
+}
+
+@layer utilities {
+  .text-glow {
+    text-shadow: 0 0 16px rgba(5, 150, 105, 0.25);
+  }
+  
+  .glass-card {
+    background: #FFFFFF;
+    border: 1px solid #E2E8F0;
+    box-shadow: 0 2px 12px -2px rgba(15, 23, 42, 0.05);
+  }
+
+  .glass-card-hover {
+    transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  .glass-card-hover:hover {
+    transform: translateY(-2px);
+    border-color: #A7F3D0;
+    box-shadow: 0 12px 28px -4px rgba(5, 150, 105, 0.1);
+  }
+}

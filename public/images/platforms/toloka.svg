@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 160 160" width="160" height="160">
+  <defs>
+    <linearGradient id="tolGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#8B5CF6" />
+      <stop offset="100%" stop-color="#EC4899" />
+    </linearGradient>
+  </defs>
+  <rect width="160" height="160" rx="36" fill="#131E35" stroke="#8B5CF6" stroke-width="2" stroke-opacity="0.3"/>
+  <circle cx="80" cy="80" r="32" fill="none" stroke="url(#tolGrad)" stroke-width="10"/>
+  <circle cx="80" cy="80" r="12" fill="url(#tolGrad)"/>
+</svg>

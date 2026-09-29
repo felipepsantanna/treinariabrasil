@@ -1,0 +1,67 @@
+---
+// CookieBanner.astro - Aviso de Cookies simples conforme LGPD (Clean Light)
+---
+
+<div
+  id="cookie-banner"
+  class="fixed bottom-4 left-4 right-4 sm:left-auto sm:right-6 sm:max-w-md z-50 transform translate-y-32 opacity-0 transition-all duration-300 pointer-events-none"
+  aria-live="polite"
+>
+  <div class="bg-white border border-slate-200/90 p-5 rounded-2xl shadow-2xl space-y-3 pointer-events-auto">
+    <div class="flex items-start justify-between gap-3">
+      <div class="flex items-center gap-2 text-slate-900 font-bold text-sm">
+        <svg class="w-5 h-5 text-emerald-600 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" />
+        </svg>
+        Privacidade e Cookies
+      </div>
+      <button
+        id="cookie-close-btn"
+        class="text-slate-400 hover:text-slate-700 p-1 rounded-md"
+        aria-label="Fechar aviso"
+      >
+        <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+        </svg>
+      </button>
+    </div>
+    
+    <p class="text-xs text-slate-600 leading-relaxed font-normal">
+      Utilizamos cookies essenciais e métricas anônimas para melhorar sua experiência de navegação e garantir a segurança do portal. Ao continuar, você concorda com nossa <a href="/politica-de-privacidade" class="text-emerald-700 underline font-medium hover:text-emerald-800">Política de Privacidade</a>.
+    </p>
+
+    <div class="flex items-center gap-2 pt-1">
+      <button
+        id="cookie-accept-btn"
+        class="w-full py-2.5 px-3 text-xs font-bold rounded-xl bg-emerald-600 text-white hover:bg-emerald-700 transition-colors shadow-sm"
+      >
+        Aceitar e Continuar
+      </button>
+    </div>
+  </div>
+</div>
+
+<script>
+  const banner = document.getElementById('cookie-banner');
+  const acceptBtn = document.getElementById('cookie-accept-btn');
+  const closeBtn = document.getElementById('cookie-close-btn');
+
+  if (banner && acceptBtn && closeBtn) {
+    const consent = localStorage.getItem('treinaria_lgpd_consent');
+    if (!consent) {
+      setTimeout(() => {
+        banner.classList.remove('translate-y-32', 'opacity-0');
+        banner.classList.add('translate-y-0', 'opacity-100');
+      }, 1000);
+    }
+
+    const dismissBanner = () => {
+      banner.classList.remove('translate-y-0', 'opacity-100');
+      banner.classList.add('translate-y-32', 'opacity-0');
+      localStorage.setItem('treinaria_lgpd_consent', 'accepted');
+    };
+
+    acceptBtn.addEventListener('click', dismissBanner);
+    closeBtn.addEventListener('click', dismissBanner);
+  }
+</script>

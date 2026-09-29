@@ -1,0 +1,19 @@
+{
+  "id": "flambra-tarefas",
+  "platformId": "flambra",
+  "platformName": "Flambra",
+  "title": "Avaliador e Gravador de Tarefas Domésticas Nacionais",
+  "status": "aberta",
+  "category": "Vídeo Doméstico",
+  "remuneration": "R$ 25,00 / hora",
+  "currency": "BRL",
+  "spots": "Novas vagas por lote quinzenal",
+  "updatedAt": "23/09/2026",
+  "requirements": [
+    "Celular com câmera Full HD",
+    "Ambiente residencial bem iluminado",
+    "Conta Pix vinculada ao CPF para recebimento quinzenal"
+  ],
+  "description": "Primeira plataforma brasileira voltada para a captação de dados de atividades domésticas para robótica e IA.",
+  "applyUrl": "https://flambra.com.br/?ref=PLACEHOLDER_SEU_LINK_AQUI"
+}

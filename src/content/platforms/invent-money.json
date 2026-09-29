@@ -1,0 +1,52 @@
+{
+  "id": "invent-money",
+  "status": "draft",
+  "featured": false,
+  "name": "Invent Money",
+  "logo": "/images/platforms/invent-money.svg",
+  "rating": 4.3,
+  "reviewsCount": null,
+  "category": "Vídeo doméstico + comercial",
+  "badge": "Aceita mais celulares",
+  "tags": ["com-indicacao"],
+  "pricing": {
+    "min": 5,
+    "max": 8,
+    "currency": "USD",
+    "unit": "hora",
+    "displayLabel": "$5 a $8"
+  },
+  "affiliateUrl": "https://inventmoney.ai/?ref=PLACEHOLDER_SEU_LINK_AQUI",
+  "summary": "Plataforma internacional em expansão que aceita uma gama maior de smartphones para gravação de rotinas.",
+  "pros": [
+    "Compatibilidade com mais modelos de celulares Android e iOS",
+    "Pagamentos em dólar americano",
+    "Opções de tarefas residenciais e comerciais"
+  ],
+  "cons": [
+    "Fila de aprovação pode variar conforme a região"
+  ],
+  "technicalRequirements": {
+    "duration": "20 a 45 min",
+    "format": "Horizontal, 1080p 60fps",
+    "hands": "As duas mãos visíveis",
+    "zoom": "Grande angular recomendada",
+    "compatiblePhones": {
+      "iphone": "Modelos 11 em diante",
+      "pixel": "Pixel 5 em diante",
+      "galaxyS": "S20 em diante e intermediários premium"
+    }
+  },
+  "payment": {
+    "minWithdrawal": "$20",
+    "avgTime": "Semanal / Quinzenal",
+    "methods": ["Pix", "PayPal", "Payoneer"]
+  },
+  "bonuses": [],
+  "support": {
+    "channel": "Discord / Email",
+    "active": true
+  },
+  "signupSteps": [],
+  "faq": []
+}

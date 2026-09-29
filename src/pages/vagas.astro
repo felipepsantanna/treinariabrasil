@@ -1,0 +1,83 @@
+---
+import BaseLayout from '@/layouts/BaseLayout.astro';
+import { getCollection } from 'astro:content';
+import VagaItem from '@/components/vagas/VagaItem.astro';
+
+const allVagas = await getCollection('vagas');
+
+const title = "Painel de Vagas para Treinar IA no Brasil | Vagas Abertas";
+const description = "Acompanhe em tempo real as vagas e campanhas abertas para gravação de tarefas e treinamento de IA no Brasil. Remunerações em dólar e Pix.";
+
+const breadcrumbJsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'BreadcrumbList',
+  'itemListElement': [
+    {
+      '@type': 'ListItem',
+      'position': 1,
+      'name': 'Início',
+      'item': 'https://treinariabrasil.com.br/'
+    },
+    {
+      '@type': 'ListItem',
+      'position': 2,
+      'name': 'Vagas Abertas',
+      'item': 'https://treinariabrasil.com.br/vagas'
+    }
+  ]
+};
+---
+
+<BaseLayout
+  title={title}
+  description={description}
+  jsonLd={breadcrumbJsonLd}
+>
+  <div class="py-12 sm:py-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
+    
+    <!-- Header -->
+    <div class="max-w-3xl">
+      <nav class="flex items-center gap-2 text-xs text-slate-500 mb-4" aria-label="Navegação em trilha">
+        <a href="/" class="hover:text-slate-900 transition-colors">Início</a>
+        <span>/</span>
+        <span class="text-emerald-700 font-bold">Vagas Abertas</span>
+      </nav>
+
+      <span class="text-xs font-bold uppercase tracking-wider text-emerald-800 bg-emerald-50 px-3 py-1 rounded-full border border-emerald-200">
+        Oportunidades em Aberto
+      </span>
+      <h1 class="text-3xl sm:text-5xl font-extrabold text-slate-900 mt-4">
+        Vagas e Campanhas para Treinar IA
+      </h1>
+      <p class="text-slate-600 text-base sm:text-lg mt-4 leading-relaxed font-normal">
+        Monitoramos constantemente a abertura de lotes de tarefas nas plataformas parceiras. Todas as candidaturas são gratuitas e direcionadas através dos links oficiais de afiliados.
+      </p>
+    </div>
+
+    <!-- Alert / Tips Box -->
+    <div class="p-5 rounded-2xl bg-white border border-slate-200 shadow-sm flex items-start gap-4">
+      <div class="p-2.5 rounded-xl bg-emerald-50 text-emerald-700 border border-emerald-100 flex-shrink-0">
+        <svg class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+        </svg>
+      </div>
+      <div class="text-sm text-slate-700 leading-relaxed">
+        <strong class="text-slate-900 font-bold">Como garantir aprovação nas vagas:</strong> Certifique-se de que seu celular atende aos requisitos técnicos da plataforma antes de enviar o vídeo de calibração inicial. A maioria das vagas encerra o lote assim que atinge a meta de horas gravadas.
+      </div>
+    </div>
+
+    <!-- Vagas Grid -->
+    <div>
+      <div class="flex items-center justify-between mb-6">
+        <h2 class="text-2xl font-bold text-slate-900">Lista de Vagas Recentes ({allVagas.length})</h2>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        {allVagas.map((vaga) => (
+          <VagaItem vaga={vaga.data} />
+        ))}
+      </div>
+    </div>
+
+  </div>
+</BaseLayout>

@@ -1,0 +1,105 @@
+---
+import BaseLayout from '@/layouts/BaseLayout.astro';
+import { getCollection } from 'astro:content';
+import Hero from '@/components/home/Hero.astro';
+import CredibilityBar from '@/components/home/CredibilityBar.astro';
+import EducationalSection from '@/components/home/EducationalSection.astro';
+import StepByStep from '@/components/home/StepByStep.astro';
+import PlatformCard from '@/components/platforms/PlatformCard.astro';
+import EarningsSimulator from '@/components/home/EarningsSimulator.astro';
+import OpenRolesSection from '@/components/home/OpenRolesSection.astro';
+import ComparisonSection from '@/components/home/ComparisonSection.astro';
+import TestimonialsSection from '@/components/home/TestimonialsSection.astro';
+import FAQAccordion, { faqSchema } from '@/components/home/FAQAccordion.astro';
+
+// Obter apenas plataformas publicadas, ordenando featured primeiro
+const allPlatforms = await getCollection('platforms');
+const publishedPlatforms = allPlatforms
+  .filter((p) => p.data.status === 'published')
+  .sort((a, b) => (b.data.featured ? 1 : 0) - (a.data.featured ? 1 : 0));
+
+// Metatags SEO
+const title = "Treinar IA: Ganhe em Dólar com Tarefas do Dia a Dia"; // 50 chars (<60)
+const description = "Descubra como treinar IA e faturar em dólar com vídeos simples de rotina. Conheça as melhores plataformas com saque semanal via Pix. Cadastre-se!"; // 149 chars (<155)
+
+// JSON-LD Schemas (Organization + FAQPage)
+const organizationSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'Organization',
+  'name': 'Treinar IA Brasil',
+  'url': 'https://treinariabrasil.com.br',
+  'logo': 'https://treinariabrasil.com.br/images/platforms/hub-xyz.svg',
+  'description': 'Portal brasileiro de conteúdo e afiliados para treinamento de inteligência artificial e visão computacional.',
+  'sameAs': [
+    'https://t.me/PLACEHOLDER_CANAL_TELEGRAM'
+  ]
+};
+
+const combinedJsonLd = [organizationSchema, faqSchema];
+---
+
+<BaseLayout
+  title={title}
+  description={description}
+  jsonLd={combinedJsonLd}
+>
+  <!-- 2. Hero Section -->
+  <Hero />
+
+  <!-- 3. Barra de Credibilidade -->
+  <CredibilityBar />
+
+  <!-- 4. Seção Educacional: O que é treinar IA -->
+  <EducationalSection />
+
+  <!-- 5. Passo a Passo (6 steps) -->
+  <StepByStep />
+
+  <!-- 6. Cards de Plataformas Homologadas -->
+  <section id="plataformas-grid" class="py-16 lg:py-24 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="text-center max-w-3xl mx-auto mb-14">
+      <span class="text-xs font-bold uppercase tracking-wider text-emerald-800 bg-emerald-50 px-3 py-1 rounded-full border border-emerald-200">
+        Curadoria Especializada
+      </span>
+      <h2 class="text-3xl sm:text-4xl font-extrabold text-slate-900 mt-4">
+        Plataformas que Pagam para Treinar IA
+      </h2>
+      <p class="text-slate-600 text-base sm:text-lg mt-2 font-normal">
+        Avaliamos e selecionamos apenas as opções confiáveis com saques testados e comprovados para o Brasil.
+      </p>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+      {publishedPlatforms.map((platform) => (
+        <PlatformCard platform={platform.data} />
+      ))}
+    </div>
+
+    <div class="mt-12 text-center">
+      <a
+        href="/plataformas"
+        class="inline-flex items-center gap-2 px-6 py-3.5 rounded-xl bg-white hover:bg-slate-50 text-slate-800 font-bold text-sm border border-slate-300 transition-colors shadow-sm"
+      >
+        Ver comparação detalhada de todas as plataformas
+        <svg class="w-4 h-4 text-emerald-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M14 5l7 7m0 0l-7 7m7-7H3" />
+        </svg>
+      </a>
+    </div>
+  </section>
+
+  <!-- 7. Simulador de Ganhos Interativo -->
+  <EarningsSimulator />
+
+  <!-- 8. Seção de Vagas Abertas -->
+  <OpenRolesSection />
+
+  <!-- 9. Comparativo 'Qual Escolher' -->
+  <ComparisonSection />
+
+  <!-- 10. Prova Social / Depoimentos -->
+  <TestimonialsSection />
+
+  <!-- 11. FAQ com Schema.org FAQPage -->
+  <FAQAccordion />
+</BaseLayout>

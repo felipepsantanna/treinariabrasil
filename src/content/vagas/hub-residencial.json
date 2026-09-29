@@ -1,0 +1,20 @@
+{
+  "id": "hub-residencial",
+  "platformId": "hub-xyz",
+  "platformName": "Hub.xyz",
+  "title": "Gravador de Tarefas Domésticas e Culinária",
+  "status": "aberta",
+  "category": "Residencial",
+  "remuneration": "$5 a $7 / hora (~R$ 28 a R$ 40/h)",
+  "currency": "USD",
+  "spots": "Cap de até 30h/mês nas turbinadas",
+  "updatedAt": "23/09/2026",
+  "requirements": [
+    "Smartphone compatível",
+    "Gravações de tarefas de cozinha, limpeza ou organização",
+    "Ângulo grande angular (0.5x) e ambas as mãos em cena",
+    "Vídeos de até 30 minutos por tarefa"
+  ],
+  "description": "Gravação de tarefas domésticas simples do dia a dia. Pagamento semanal via Pix diretamente na conta brasileira.",
+  "applyUrl": "https://ai.hub.xyz/r/TV7MT7M4"
+}

@@ -1,0 +1,41 @@
+---
+import { getCollection } from 'astro:content';
+import VagaItem from '@/components/vagas/VagaItem.astro';
+
+const allVagas = await getCollection('vagas');
+// Display up to 3 vacancies on homepage
+const vagas = allVagas.slice(0, 3);
+---
+
+<section id="vagas" class="py-16 lg:py-24 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+  <div class="flex flex-col md:flex-row md:items-end justify-between gap-4 mb-12">
+    <div>
+      <span class="text-xs font-bold uppercase tracking-wider text-emerald-800 bg-emerald-50 px-3 py-1 rounded-full border border-emerald-200">
+        Oportunidades em Aberto
+      </span>
+      <h2 class="text-3xl sm:text-4xl font-extrabold text-slate-900 mt-4">
+        Vagas Abertas para Treinamento de IA
+      </h2>
+      <p class="text-slate-600 text-base sm:text-lg mt-2 font-normal">
+        Acompanhe em tempo real quais plataformas estão com cadastros ativos e liberando novos lotes de tarefas no Brasil.
+      </p>
+    </div>
+    <div>
+      <a
+        href="/vagas"
+        class="inline-flex items-center text-sm font-bold text-emerald-600 hover:text-emerald-700 transition-colors"
+      >
+        Ver todas as vagas
+        <svg class="w-4 h-4 ml-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M9 5l7 7-7 7" />
+        </svg>
+      </a>
+    </div>
+  </div>
+
+  <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+    {vagas.map((vaga) => (
+      <VagaItem vaga={vaga.data} />
+    ))}
+  </div>
+</section>

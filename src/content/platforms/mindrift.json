@@ -1,0 +1,46 @@
+{
+  "id": "mindrift",
+  "status": "draft",
+  "featured": false,
+  "name": "Mindrift",
+  "logo": "/images/platforms/mindrift.svg",
+  "rating": null,
+  "reviewsCount": null,
+  "category": "Vídeo doméstico",
+  "badge": null,
+  "tags": [],
+  "pricing": {
+    "min": null,
+    "max": null,
+    "currency": "USD",
+    "unit": "hora",
+    "displayLabel": null
+  },
+  "affiliateUrl": "https://mindrift.ai/?ref=PLACEHOLDER_SEU_LINK_AQUI",
+  "summary": "Comunidade global de freelancers dedicada ao aprimoramento de dados e treinamento de modelos de linguagem e visão.",
+  "pros": [],
+  "cons": [],
+  "technicalRequirements": {
+    "duration": null,
+    "format": null,
+    "hands": null,
+    "zoom": null,
+    "compatiblePhones": {
+      "iphone": null,
+      "pixel": null,
+      "galaxyS": null
+    }
+  },
+  "payment": {
+    "minWithdrawal": null,
+    "avgTime": null,
+    "methods": []
+  },
+  "bonuses": [],
+  "support": {
+    "channel": null,
+    "active": false
+  },
+  "signupSteps": [],
+  "faq": []
+}

@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 160 160" width="160" height="160">
+  <defs>
+    <linearGradient id="minGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#06B6D4" />
+      <stop offset="100%" stop-color="#3B82F6" />
+    </linearGradient>
+  </defs>
+  <rect width="160" height="160" rx="36" fill="#131E35" stroke="#06B6D4" stroke-width="2" stroke-opacity="0.3"/>
+  <path d="M46 100L70 60L90 85L114 55" stroke="url(#minGrad)" stroke-width="10" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+</svg>

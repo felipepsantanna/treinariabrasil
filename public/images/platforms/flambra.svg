@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 160 160" width="160" height="160">
+  <defs>
+    <linearGradient id="flamGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#F59E0B" />
+      <stop offset="100%" stop-color="#EF4444" />
+    </linearGradient>
+  </defs>
+  <rect width="160" height="160" rx="36" fill="#131E35" stroke="#F59E0B" stroke-width="2" stroke-opacity="0.3"/>
+  <path d="M80 45C65 65 60 78 60 92C60 108 70 118 80 118C90 118 100 108 100 92C100 78 95 65 80 45Z" fill="url(#flamGrad)"/>
+  <path d="M80 75C73 85 70 91 70 98C70 106 75 110 80 110C85 110 90 106 90 98C90 91 87 85 80 75Z" fill="#FFF" fill-opacity="0.9"/>
+</svg>

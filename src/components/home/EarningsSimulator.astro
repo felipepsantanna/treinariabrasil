@@ -1,0 +1,243 @@
+---
+import { MOCK_USD_TO_BRL, SIMULATOR_DEFAULTS } from '@/consts/simulator';
+
+export interface Props {
+  usdToBrl?: number;
+}
+
+const usdToBrl = Astro.props.usdToBrl || MOCK_USD_TO_BRL;
+---
+
+<section id="simulador" class="py-16 lg:py-24 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+  <div class="relative bg-white rounded-3xl p-6 sm:p-10 lg:p-14 border border-slate-200 shadow-sm overflow-hidden">
+    
+    <div class="relative z-10 grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
+      
+      <!-- Left Column: Controls & Sliders -->
+      <div class="lg:col-span-7 space-y-6">
+        <div>
+          <span class="text-xs font-bold uppercase tracking-wider text-emerald-800 bg-emerald-50 px-3 py-1 rounded-full border border-emerald-200">
+            Calculadora Interativa
+          </span>
+          <h2 class="text-3xl sm:text-4xl font-extrabold text-slate-900 mt-4">
+            Simulador de Ganhos com Treinamento de IA
+          </h2>
+          <p class="text-slate-600 text-base mt-2 font-normal">
+            Ajuste as horas diárias e dias no mês para estimar o seu faturamento mensal com base nas taxas das plataformas homologadas.
+          </p>
+        </div>
+
+        <!-- Slider 1: Horas por dia -->
+        <div class="p-5 rounded-2xl bg-slate-50 border border-slate-200 space-y-3">
+          <div class="flex items-center justify-between">
+            <label for="hours-slider" class="text-sm font-bold text-slate-900">
+              Horas gravadas por dia:
+            </label>
+            <span id="hours-display" class="text-lg font-black text-emerald-700 font-display bg-white px-3.5 py-1 rounded-lg border border-slate-200 shadow-sm">
+              2 horas/dia
+            </span>
+          </div>
+          <input
+            type="range"
+            id="hours-slider"
+            min="1"
+            max="8"
+            step="0.5"
+            value={SIMULATOR_DEFAULTS.hoursPerDay}
+            class="w-full h-2 bg-slate-200 rounded-lg appearance-none cursor-pointer accent-emerald-600"
+          />
+          <div class="flex justify-between text-xs text-slate-500 font-medium">
+            <span>1 hora (rotina leve)</span>
+            <span>4 horas</span>
+            <span>8 horas (dedicação total)</span>
+          </div>
+        </div>
+
+        <!-- Slider 2: Dias por mês -->
+        <div class="p-5 rounded-2xl bg-slate-50 border border-slate-200 space-y-3">
+          <div class="flex items-center justify-between">
+            <label for="days-slider" class="text-sm font-bold text-slate-900">
+              Dias gravando no mês:
+            </label>
+            <span id="days-display" class="text-lg font-black text-emerald-700 font-display bg-white px-3.5 py-1 rounded-lg border border-slate-200 shadow-sm">
+              22 dias/mês
+            </span>
+          </div>
+          <input
+            type="range"
+            id="days-slider"
+            min="5"
+            max="30"
+            step="1"
+            value={SIMULATOR_DEFAULTS.daysPerMonth}
+            class="w-full h-2 bg-slate-200 rounded-lg appearance-none cursor-pointer accent-emerald-600"
+          />
+          <div class="flex justify-between text-xs text-slate-500 font-medium">
+            <span>5 dias</span>
+            <span>22 dias (dias úteis)</span>
+            <span>30 dias</span>
+          </div>
+        </div>
+
+        <!-- Currency Selector Toggle -->
+        <div class="flex items-center justify-between p-4 rounded-xl bg-slate-50 border border-slate-200">
+          <span class="text-sm text-slate-700 font-bold">Exibir resultado em:</span>
+          <div class="inline-flex p-1 rounded-xl bg-white border border-slate-200 shadow-sm" role="group">
+            <button
+              type="button"
+              id="currency-brl"
+              class="px-4 py-1.5 text-xs font-bold rounded-lg transition-all bg-emerald-600 text-white shadow-sm"
+            >
+              Real (BRL · Pix)
+            </button>
+            <button
+              type="button"
+              id="currency-usd"
+              class="px-4 py-1.5 text-xs font-bold rounded-lg transition-all text-slate-600 hover:text-slate-900"
+            >
+              Dólar (USD)
+            </button>
+          </div>
+        </div>
+
+        <p class="text-xs text-slate-500 font-normal">
+          * Taxa de conversão estimada: 1 USD = R$ {usdToBrl.toFixed(2)} (configurável em <code class="text-emerald-700 font-semibold bg-slate-100 px-1 py-0.5 rounded">src/consts/simulator.ts</code>). Os ganhos reais dependem do volume de tarefas e da aprovação técnica dos vídeos.
+        </p>
+
+      </div>
+
+      <!-- Right Column: Result Card (Clean & Focused) -->
+      <div class="lg:col-span-5">
+        <div class="bg-slate-900 text-white rounded-2xl p-6 sm:p-8 shadow-xl relative space-y-6">
+          
+          <div class="flex items-center justify-between border-b border-slate-800 pb-4">
+            <span class="text-xs uppercase font-extrabold text-slate-400 tracking-wider">Estimativa Mensal</span>
+            <span id="monthly-hours-tag" class="text-xs text-emerald-300 bg-emerald-950/80 px-3 py-1 rounded-full font-bold border border-emerald-500/40">
+              44 horas gravadas
+            </span>
+          </div>
+
+          <!-- Base calculation display -->
+          <div>
+            <span class="text-xs text-slate-400 block mb-1 font-semibold">Ganhos em Tarefas Básicas ($6/h):</span>
+            <div id="base-earnings-display" class="text-4xl sm:text-5xl font-black text-white font-display">
+              R$ 1.518,00
+            </div>
+            <p class="text-xs text-slate-300 mt-1.5 font-normal">
+              Atividades domésticas de rotina (culinária, organização, limpeza)
+            </p>
+          </div>
+
+          <!-- Boosted calculation display -->
+          <div class="p-4 rounded-xl bg-emerald-950/70 border border-emerald-500/50 space-y-1">
+            <div class="flex items-center justify-between">
+              <span class="text-xs font-bold text-emerald-300 flex items-center gap-1">
+                🔥 Com Tarefas Turbinadas ($8/h):
+              </span>
+            </div>
+            <div id="boosted-earnings-display" class="text-2xl sm:text-3xl font-extrabold text-emerald-300 font-display">
+              R$ 2.024,00
+            </div>
+            <p class="text-xs text-slate-300 font-normal">
+              Inclui tarefas comerciais ou bônus de metas semanais da Hub.xyz
+            </p>
+          </div>
+
+          <!-- CTA inside simulator -->
+          <div class="pt-2">
+            <a
+              href="/plataformas"
+              class="w-full inline-flex items-center justify-center py-4 px-4 rounded-xl text-sm font-bold text-white bg-emerald-600 hover:bg-emerald-700 transition-all shadow-md shadow-emerald-600/30 hover:scale-[1.02]"
+            >
+              Começar a gravar agora
+              <svg class="w-4 h-4 ml-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M14 5l7 7m0 0l-7 7m7-7H3" />
+              </svg>
+            </a>
+          </div>
+
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+</section>
+
+<!-- Pure Vanilla JS Simulator Logic (No React, 0 overhead) -->
+<script define:vars={{ usdToBrl }}>
+  let currentHours = 2;
+  let currentDays = 22;
+  let currentCurrency = 'BRL'; // 'BRL' or 'USD'
+
+  const hoursSlider = document.getElementById('hours-slider');
+  const daysSlider = document.getElementById('days-slider');
+  const hoursDisplay = document.getElementById('hours-display');
+  const daysDisplay = document.getElementById('days-display');
+  const monthlyHoursTag = document.getElementById('monthly-hours-tag');
+  const baseEarningsDisplay = document.getElementById('base-earnings-display');
+  const boostedEarningsDisplay = document.getElementById('boosted-earnings-display');
+
+  const btnBrl = document.getElementById('currency-brl');
+  const btnUsd = document.getElementById('currency-usd');
+
+  const formatNumber = (val, currency) => {
+    if (currency === 'BRL') {
+      return 'R$ ' + val.toLocaleString('pt-BR', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+    }
+    return '$ ' + val.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+  };
+
+  const updateCalculations = () => {
+    const totalHours = currentHours * currentDays;
+    const baseUsd = totalHours * 6.0;
+    const boostedUsd = totalHours * 8.0;
+
+    let baseFinal = baseUsd;
+    let boostedFinal = boostedUsd;
+
+    if (currentCurrency === 'BRL') {
+      baseFinal = baseUsd * usdToBrl;
+      boostedFinal = boostedUsd * usdToBrl;
+    }
+
+    if (hoursDisplay) hoursDisplay.textContent = `${currentHours} ${currentHours === 1 ? 'hora' : 'horas'}/dia`;
+    if (daysDisplay) daysDisplay.textContent = `${currentDays} dias/mês`;
+    if (monthlyHoursTag) monthlyHoursTag.textContent = `${totalHours} horas gravadas`;
+    if (baseEarningsDisplay) baseEarningsDisplay.textContent = formatNumber(baseFinal, currentCurrency);
+    if (boostedEarningsDisplay) boostedEarningsDisplay.textContent = formatNumber(boostedFinal, currentCurrency);
+  };
+
+  if (hoursSlider) {
+    hoursSlider.addEventListener('input', (e) => {
+      currentHours = parseFloat(e.target.value);
+      updateCalculations();
+    });
+  }
+
+  if (daysSlider) {
+    daysSlider.addEventListener('input', (e) => {
+      currentDays = parseInt(e.target.value, 10);
+      updateCalculations();
+    });
+  }
+
+  if (btnBrl && btnUsd) {
+    btnBrl.addEventListener('click', () => {
+      currentCurrency = 'BRL';
+      btnBrl.className = 'px-4 py-1.5 text-xs font-bold rounded-lg transition-all bg-emerald-600 text-white shadow-sm';
+      btnUsd.className = 'px-4 py-1.5 text-xs font-bold rounded-lg transition-all text-slate-600 hover:text-slate-900';
+      updateCalculations();
+    });
+
+    btnUsd.addEventListener('click', () => {
+      currentCurrency = 'USD';
+      btnUsd.className = 'px-4 py-1.5 text-xs font-bold rounded-lg transition-all bg-emerald-600 text-white shadow-sm';
+      btnBrl.className = 'px-4 py-1.5 text-xs font-bold rounded-lg transition-all text-slate-600 hover:text-slate-900';
+      updateCalculations();
+    });
+  }
+
+  // Initial calculation
+  updateCalculations();
+</script>

@@ -1,0 +1,26 @@
+---
+import BaseLayout from '@/layouts/BaseLayout.astro';
+
+const title = "Página Não Encontrada (404) | Treinar IA Brasil";
+const description = "A página que você está procurando não existe ou foi movida.";
+---
+
+<BaseLayout title={title} description={description}>
+  <div class="py-24 sm:py-32 max-w-xl mx-auto px-4 text-center space-y-6">
+    <div class="inline-flex items-center justify-center w-20 h-20 rounded-3xl bg-white border border-slate-200 text-emerald-600 text-3xl font-black font-display shadow-sm">
+      404
+    </div>
+    <h1 class="text-3xl font-extrabold text-slate-900">Página Não Encontrada</h1>
+    <p class="text-sm sm:text-base text-slate-600">
+      O link que você seguiu pode estar desatualizado ou a página mudou de endereço.
+    </p>
+    <div class="pt-4">
+      <a
+        href="/"
+        class="inline-flex items-center justify-center px-6 py-3.5 rounded-xl text-sm font-bold text-white bg-emerald-600 hover:bg-emerald-700 transition-colors shadow-sm"
+      >
+        Voltar para a página inicial
+      </a>
+    </div>
+  </div>
+</BaseLayout>

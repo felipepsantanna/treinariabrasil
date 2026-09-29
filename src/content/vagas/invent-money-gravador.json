@@ -1,0 +1,19 @@
+{
+  "id": "invent-money-gravador",
+  "platformId": "invent-money",
+  "platformName": "Invent Money",
+  "title": "Coletor de Dados de Rotina em Vídeo",
+  "status": "em_breve",
+  "category": "Vídeo Doméstico + Comercial",
+  "remuneration": "$5 a $8 / hora",
+  "currency": "USD",
+  "spots": "Lista de espera prioritária",
+  "updatedAt": "23/09/2026",
+  "requirements": [
+    "Smartphones Android e iOS de modelos variados",
+    "Gravação de rotinas e manuseio de ferramentas ou objetos",
+    "Vídeo horizontal com resolução 1080p"
+  ],
+  "description": "Nova plataforma com catálogo crescente de tarefas e ampla compatibilidade com modelos de smartphones.",
+  "applyUrl": "https://inventmoney.ai/?ref=PLACEHOLDER_SEU_LINK_AQUI"
+}

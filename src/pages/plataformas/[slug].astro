@@ -1,0 +1,96 @@
+---
+import BaseLayout from '@/layouts/BaseLayout.astro';
+import { getCollection, type CollectionEntry } from 'astro:content';
+import PlatformDetail from '@/components/platforms/PlatformDetail.astro';
+
+export async function getStaticPaths() {
+  const platforms = await getCollection('platforms');
+  return platforms.map((platform) => ({
+    params: { slug: platform.data.id },
+    props: { platform },
+  }));
+}
+
+export interface Props {
+  platform: CollectionEntry<'platforms'>;
+}
+
+const { platform } = Astro.props;
+const p = platform.data;
+
+const pageTitle = `${p.name}: Como Funciona, Cadastro e Quanto Paga | Treinar IA`;
+const pageDescription = `Confira a análise completa de ${p.name}: requisitos de gravação, celulares compatíveis, quanto paga por hora e como receber via Pix no Brasil.`;
+
+// JSON-LD Schemas: Product / Review + BreadcrumbList
+const productJsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'Product',
+  'name': p.name,
+  'description': p.summary || `Plataforma de renda extra treinando modelos de IA: ${p.name}`,
+  'image': `https://treinariabrasil.com.br${p.logo}`,
+  'category': p.category,
+  ...(p.rating ? {
+    'aggregateRating': {
+      '@type': 'AggregateRating',
+      'ratingValue': p.rating,
+      'bestRating': '5.0',
+      'worstRating': '1.0',
+      'ratingCount': p.reviewsCount || 100,
+    }
+  } : {}),
+  'offers': {
+    '@type': 'AggregateOffer',
+    'priceCurrency': p.pricing.currency,
+    'lowPrice': p.pricing.min || 5,
+    'highPrice': p.pricing.max || 8,
+  }
+};
+
+const breadcrumbJsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'BreadcrumbList',
+  'itemListElement': [
+    {
+      '@type': 'ListItem',
+      'position': 1,
+      'name': 'Início',
+      'item': 'https://treinariabrasil.com.br/'
+    },
+    {
+      '@type': 'ListItem',
+      'position': 2,
+      'name': 'Plataformas',
+      'item': 'https://treinariabrasil.com.br/plataformas'
+    },
+    {
+      '@type': 'ListItem',
+      'position': 3,
+      'name': p.name,
+      'item': `https://treinariabrasil.com.br/plataformas/${p.id}`
+    }
+  ]
+};
+---
+
+<BaseLayout
+  title={pageTitle}
+  description={pageDescription}
+  type="product"
+  jsonLd={[productJsonLd, breadcrumbJsonLd]}
+>
+  <div class="py-10 sm:py-16 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    
+    <!-- Breadcrumb visual -->
+    <nav class="flex items-center gap-2 text-xs text-slate-400 mb-8" aria-label="Navegação em trilha">
+      <a href="/" class="hover:text-white transition-colors">Início</a>
+      <span>/</span>
+      <a href="/plataformas" class="hover:text-white transition-colors">Plataformas</a>
+      <span>/</span>
+      <span class="text-brand-accent font-semibold">{p.name}</span>
+    </nav>
+
+    <!-- Platform Detail Component -->
+    <PlatformDetail platform={p} />
+
+  </div>
+</BaseLayout>
