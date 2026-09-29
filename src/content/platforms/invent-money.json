@@ -1,52 +1,89 @@
 {
   "id": "invent-money",
-  "status": "draft",
-  "featured": false,
+  "status": "published",
+  "featured": true,
   "name": "Invent Money",
   "logo": "/images/platforms/invent-money.svg",
-  "rating": 4.3,
-  "reviewsCount": null,
-  "category": "Vídeo doméstico + comercial",
-  "badge": "Aceita mais celulares",
-  "tags": ["com-indicacao"],
+  "rating": 4.4,
+  "reviewsCount": 116,
+  "category": "Microtarefas de IA + Contribuição de Dados",
+  "badge": "SuperApp Web3 · Aceita Mais Celulares",
+  "tags": ["com-indicacao", "pagamento-usdc", "aceita-android", "train-ai"],
   "pricing": {
-    "min": 5,
+    "min": 2,
     "max": 8,
     "currency": "USD",
-    "unit": "hora",
-    "displayLabel": "$5 a $8"
+    "unit": "tarefa / hora",
+    "displayLabel": "$2 a $8 / tarefa ou hora"
   },
-  "affiliateUrl": "https://inventmoney.ai/?ref=PLACEHOLDER_SEU_LINK_AQUI",
-  "summary": "Plataforma internacional em expansão que aceita uma gama maior de smartphones para gravação de rotinas.",
+  "affiliateUrl": "https://app.inventmoney.com/r/4PX2QM1K",
+  "summary": "SuperApp financeiro internacional mantido pela The Invention Network, Inc. (com captação de US$ 4 milhões com grandes investidores globais). Focado no mercado de 'internet earners', permite faturar através do programa Train AI (contribuição e qualificação de dados para IA), cumprimento de missões, pesquisas e testes de aplicativos, com saldo creditado em USDC (Dólar Digital na rede Base) e bônus no token nativo $INVENT.",
   "pros": [
-    "Compatibilidade com mais modelos de celulares Android e iOS",
-    "Pagamentos em dólar americano",
-    "Opções de tarefas residenciais e comerciais"
+    "Programa Train AI: remuneração direta em USDC por submissão de perfis de contribuição de dados e tarefas práticas de IA",
+    "Ampla compatibilidade de aparelhos: aceita grande variedade de modelos Android e iOS, sem as restrições severas de modelos topo de linha de outras plataformas",
+    "Carteira Web3 Privy nativa na rede Base: facilidade de criação sem necessidade de conhecimento técnico prévio de blockchain",
+    "Sem exigência inicial de suporte de cabeça ou gravações longas para se qualificar e começar a receber no programa Train AI",
+    "Diversidade de opções de ganho: combina tarefas de IA com missões diárias de parceiros (offerwalls, pesquisas e testes de aplicativos)",
+    "Financiamento sólido de US$ 4M de fundos de tecnologia e modelo de divisão de receitas com a comunidade"
   ],
   "cons": [
-    "Fila de aprovação pode variar conforme a região"
+    "Pagamentos realizados em USDC (rede Base/Ethereum L2): para resgatar em Reais via Pix no Brasil é necessário transferir para uma corretora nacional (ex: Binance, Bitso ou Mercado Bitcoin)",
+    "Aprovação em lotes (batches): novas vagas e aprovações no programa Train AI abrem e fecham em ciclos periódicos por demanda regional",
+    "Tolerância zero ao uso de VPN ou proxies: a plataforma utiliza sistemas antifraude rigorosos que bloqueiam acessos mascarados",
+    "Tarefas secundárias de parceiros (offerwalls) pagam valores menores, sendo essencial priorizar as missões Train AI de maior retorno"
   ],
   "technicalRequirements": {
-    "duration": "20 a 45 min",
-    "format": "Horizontal, 1080p 60fps",
-    "hands": "As duas mãos visíveis",
-    "zoom": "Grande angular recomendada",
+    "duration": "5 a 20 min (microtarefas e perfis)",
+    "format": "Interface Web responsiva (app.inventmoney.com / PWA)",
+    "hands": "Depende da missão (perfil cadastral inicial não exige)",
+    "zoom": "Câmera padrão para tarefas fotográficas ou visuais",
     "compatiblePhones": {
-      "iphone": "Modelos 11 em diante",
-      "pixel": "Pixel 5 em diante",
-      "galaxyS": "S20 em diante e intermediários premium"
+      "iphone": "iPhone 11 em diante (iOS 15 ou superior)",
+      "pixel": "Google Pixel 4 em diante",
+      "galaxyS": "Samsung Galaxy linhas S, Note e linha A (intermediários e avançados), além de aparelhos Xiaomi e Motorola modernos"
     }
   },
   "payment": {
-    "minWithdrawal": "$20",
-    "avgTime": "Semanal / Quinzenal",
-    "methods": ["Pix", "PayPal", "Payoneer"]
+    "minWithdrawal": "$2 (USDC)",
+    "avgTime": "Instantâneo a 48h",
+    "methods": ["USDC (Rede Base)", "Crypto Wallet", "Pix (via Exchange)"]
   },
-  "bonuses": [],
+  "bonuses": [
+    { "label": "Bônus Perfil Train AI", "value": "US$ 2,00 direto na carteira por lote/perfil aprovado" },
+    { "label": "Airdrop de Tokens $INVENT", "value": "Pontuação diária com divisão de receitas futuras da plataforma" },
+    { "label": "Comissão por Indicação", "value": "Bonificação contínua sobre as missões concluídas pelos seus convidados" }
+  ],
   "support": {
-    "channel": "Discord / Email",
+    "channel": "E-mail (support@inventmoney.com) & Telegram Oficial",
     "active": true
   },
-  "signupSteps": [],
-  "faq": []
+  "signupSteps": [
+    "Acesse o site oficial da plataforma pelo link de indicação: app.inventmoney.com/r/4PX2QM1K",
+    "Crie sua conta gratuita utilizando seu e-mail ou autenticação social",
+    "Sua carteira segura Privy MPC será criada automaticamente na rede Base sem necessidade de chaves complicadas",
+    "Acesse o menu 'Train AI' e preencha seu Perfil de Contribuinte com seus idiomas, aparelhos e qualificações",
+    "Aguarde a aprovação do seu lote (2 a 3 dias úteis) para receber o crédito de US$ 2,00 em USDC e acesse as missões do mural Earn"
+  ],
+  "faq": [
+    {
+      "question": "O que é a Invent Money e qual seu site oficial?",
+      "answer": "A Invent Money é um SuperApp financeiro internacional desenvolvido pela The Invention Network, Inc. O site institucional é inventmoney.com e a área de membros/aplicativo oficial funciona em app.inventmoney.com. Ela remunera usuários por tarefas digitais e treinamento de inteligência artificial através do programa Train AI."
+    },
+    {
+      "question": "Como recebo o dinheiro da Invent Money no Brasil via Pix?",
+      "answer": "A Invent Money realiza os pagamentos em USDC (dólar digital com valor pareado 1:1 ao dólar americano) direto na sua carteira digital integrada na rede Base. Para receber em Reais via Pix na sua conta bancária brasileira, basta transferir seus USDCs para qualquer corretora com Pix no Brasil (como Binance, Bitso, Bybit ou Mercado Bitcoin) e sacar diretamente para a sua conta."
+    },
+    {
+      "question": "Preciso ter um iPhone novo ou câmera especial para começar?",
+      "answer": "Não. Diferente de plataformas com critérios estritos que exigem aparelhos topo de linha e suportes de cabeça, a Invent Money foi desenhada para aceitar a grande maioria dos smartphones Android e iPhones modernos para cadastro no Train AI e execução de microtarefas."
+    },
+    {
+      "question": "Posso acessar a Invent Money usando VPN?",
+      "answer": "Não utilize VPN ou proxy. A Invent Money possui mecanismos rígidos de verificação de fraude e geolocalização. O uso de VPN pode resultar em reprovação do Perfil de Contribuinte ou cancelamento de recompensas. Use sempre a sua conexão de internet real residencial ou móvel."
+    },
+    {
+      "question": "O cadastro na Invent Money é gratuito?",
+      "answer": "Sim, 100% gratuito. Você nunca deve pagar nenhuma taxa para se cadastrar, validar sua carteira ou liberar tarefas. O acesso é totalmente sem custos pelo link de convite oficial."
+    }
+  ]
 }

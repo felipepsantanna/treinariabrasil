@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 160 160" width="160" height="160">
+  <defs>
+    <linearGradient id="claruGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#6366F1" />
+      <stop offset="100%" stop-color="#A855F7" />
+    </linearGradient>
+    <linearGradient id="claruAccent" x1="0%" y1="100%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#38BDF8" />
+      <stop offset="100%" stop-color="#6366F1" />
+    </linearGradient>
+  </defs>
+  <rect width="160" height="160" rx="36" fill="#131E35" stroke="#6366F1" stroke-width="2" stroke-opacity="0.3"/>
+  <circle cx="80" cy="80" r="44" fill="url(#claruGrad)" fill-opacity="0.15" />
+  <!-- Stylized C and vision focal point -->
+  <path d="M102 54C96 48 88 44 78 44C58 44 42 60 42 80C42 100 58 116 78 116C88 116 96 112 102 106" stroke="url(#claruGrad)" stroke-width="11" stroke-linecap="round" fill="none"/>
+  <!-- Focus / POV sensor dot -->
+  <circle cx="92" cy="80" r="9" fill="url(#claruAccent)" />
+  <circle cx="92" cy="80" r="16" stroke="url(#claruAccent)" stroke-width="2" stroke-dasharray="3 3" fill="none" opacity="0.8" />
+</svg>

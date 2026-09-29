@@ -1,0 +1,20 @@
+{
+  "id": "claru-gravador-pov",
+  "platformId": "claru",
+  "platformName": "Claru",
+  "title": "Gravador de Tarefas Egocêntricas (POV) para Robótica",
+  "status": "aberta",
+  "category": "Robótica & IA Física",
+  "remuneration": "$4 a $7 / hora (~R$ 22 a R$ 38/h)",
+  "currency": "USD",
+  "spots": "Vagas abertas com link de indicação prioritária",
+  "updatedAt": "30/09/2026",
+  "requirements": [
+    "Smartphone homologado (iPhone 12+, Galaxy S ou Pixel)",
+    "Suporte de peito ou cabeça para gravação em primeira pessoa",
+    "Duas mãos ativas e visíveis durante a tarefa",
+    "Gravações de tarefas domésticas simples (limpeza, cozinha, organização)"
+  ],
+  "description": "Gravação de tarefas rotineiras do dia a dia para alimentar bancos de dados de robótica avançada e visão computacional em primeira pessoa.",
+  "applyUrl": "https://app.claru.ai/signup?ref=ref_syjd0amg6gx4"
+}

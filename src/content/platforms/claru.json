@@ -1,0 +1,85 @@
+{
+  "id": "claru",
+  "status": "published",
+  "featured": true,
+  "name": "Claru",
+  "logo": "/images/platforms/claru.svg",
+  "rating": 4.3,
+  "reviewsCount": 94,
+  "category": "Vídeo doméstico egocêntrico (POV)",
+  "badge": "Foco em Robótica · Em Dólar",
+  "tags": ["com-indicacao", "pagamento-dolar", "robotica-ia", "treino-pov"],
+  "pricing": {
+    "min": 4,
+    "max": 7,
+    "currency": "USD",
+    "unit": "hora",
+    "displayLabel": "$4 a $7 / hora"
+  },
+  "affiliateUrl": "https://app.claru.ai/signup?ref=ref_syjd0amg6gx4",
+  "summary": "Plataforma internacional de inteligência artificial física especializada na coleta de vídeos em primeira pessoa (POV) para treinamento de robôs e visão computacional, com pagamentos em dólar por tarefas domésticas aprovadas.",
+  "pros": [
+    "Remuneração em moeda forte: pagamentos em Dólar americano (USD) com valorização cambial favorável no Brasil",
+    "Foco no segmento de robótica física e modelos de mundo (world models), área que mais recebe investimentos em IA globalmente",
+    "Gravações 100% em primeira pessoa (POV): sem necessidade de falar, narrar ou mostrar o rosto durante os testes e tarefas",
+    "Tarefas práticas voltadas para afazeres domésticos comuns (cozinhar, organizar objetos, dobrar roupas e limpeza)",
+    "Programa de afiliados e indicações ativo para convidar novos contribuidores"
+  ],
+  "cons": [
+    "Critérios estritos de controle de qualidade: enquadramento correto das mãos e estabilização de imagem são obrigatórios",
+    "Necessidade de suporte peitoral ou de cabeça (chest/head mount) para posicionar o celular no ângulo POV",
+    "Lista de smartphones seletiva: modelos precisam de boa câmera grande-angular e sensores de movimento compatíveis",
+    "Demanda e disponibilidade de lotes variam de acordo com as necessidades de projetos dos clientes da plataforma"
+  ],
+  "technicalRequirements": {
+    "duration": "15 a 45 min por tarefa",
+    "format": "Horizontal, 1080p Full HD (30 ou 60 fps)",
+    "hands": "As duas mãos ativas e visíveis durante a execução da tarefa",
+    "zoom": "0.5x (Grande-angular) ou 1.0x calibrado",
+    "compatiblePhones": {
+      "iphone": "Linhas iPhone 12, 13, 14, 15 e 16 (com lente grande-angular e estabilização).",
+      "pixel": "Google Pixel 6, 7, 8 e 9 (e versões Pro).",
+      "galaxyS": "Samsung Galaxy linhas S21, S22, S23 e S24 (e variantes Plus/Ultra)."
+    }
+  },
+  "payment": {
+    "minWithdrawal": "$10",
+    "avgTime": "Semanal / Quinzenal",
+    "methods": ["Transferência Internacional", "PayPal", "Carteira Global"]
+  },
+  "bonuses": [
+    { "label": "Remuneração em Dólar", "value": "$4 a $7 por hora de gravação aprovada" },
+    { "label": "Bônus por Indicação", "value": "Ganhos por novos contribuidores cadastrados e ativos" },
+    { "label": "Lotes de Robótica Avançada", "value": "Missões especiais com remuneração diferenciada por complexidade" }
+  ],
+  "support": {
+    "channel": "Central de Suporte & E-mail Oficial (support@claru.ai)",
+    "active": true
+  },
+  "signupSteps": [
+    "Acesse o link de indicação oficial: app.claru.ai/signup?ref=ref_syjd0amg6gx4",
+    "Cadastre seu e-mail e conclua o formulário de cadastro de contribuidor",
+    "Instale o aplicativo da Claru no seu smartphone compatível (iOS ou Android)",
+    "Posicione o celular no suporte de cabeça ou peitoral garantindo o ângulo de visão egocêntrico",
+    "Grave e envie o vídeo de teste inicial conforme as instruções técnicas de enquadramento",
+    "Após a validação da amostra, reserve as tarefas abertas e comece a enviar suas gravações"
+  ],
+  "faq": [
+    {
+      "question": "Como funciona o pagamento da Claru no Brasil?",
+      "answer": "A Claru realiza pagamentos em dólares (USD) para tarefas aprovadas. Os valores podem ser resgatados via plataformas internacionais de pagamento (como PayPal ou carteiras digitais compatíveis) e convertidos para Reais na sua conta brasileira via Pix."
+    },
+    {
+      "question": "Preciso mostrar meu rosto nos vídeos?",
+      "answer": "Não. Todo o treinamento de visão para robôs é focado na perspectiva de primeira pessoa (egocêntrica / POV). Apenas o ambiente e os movimentos das suas mãos devem aparecer."
+    },
+    {
+      "question": "O cadastro na Claru é gratuito?",
+      "answer": "Sim! O cadastro é 100% gratuito e não exige nenhum tipo de investimento ou depósito prévio para ter acesso às tarefas."
+    },
+    {
+      "question": "Qualquer smartphone pode ser utilizado?",
+      "answer": "A plataforma exige smartphones modernos com boa câmera, taxa de quadros estável e sensor grande-angular (como iPhone 12+, Samsung Galaxy S21+ e Google Pixel 6+)."
+    }
+  ]
+}

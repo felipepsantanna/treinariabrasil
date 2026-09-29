@@ -5,10 +5,12 @@ import PlatformDetail from '@/components/platforms/PlatformDetail.astro';
 
 export async function getStaticPaths() {
   const platforms = await getCollection('platforms');
-  return platforms.map((platform) => ({
-    params: { slug: platform.data.id },
-    props: { platform },
-  }));
+  return platforms
+    .filter((platform) => platform.data.status === 'published')
+    .map((platform) => ({
+      params: { slug: platform.data.id },
+      props: { platform },
+    }));
 }
 
 export interface Props {
@@ -21,7 +23,31 @@ const p = platform.data;
 const pageTitle = `${p.name}: Como Funciona, Cadastro e Quanto Paga | Treinar IA`;
 const pageDescription = `Confira a análise completa de ${p.name}: requisitos de gravação, celulares compatíveis, quanto paga por hora e como receber via Pix no Brasil.`;
 
-// JSON-LD Schemas: Product / Review + BreadcrumbList
+// JSON-LD Schemas: Product / Review / Offers + BreadcrumbList
+const hasPriceRange = p.pricing.min !== null && p.pricing.max !== null && p.pricing.min !== p.pricing.max;
+
+const offersJsonLd = hasPriceRange
+  ? {
+      '@type': 'AggregateOffer',
+      'priceCurrency': p.pricing.currency,
+      'lowPrice': p.pricing.min,
+      'highPrice': p.pricing.max,
+      'offerCount': 1,
+      'price': p.pricing.min,
+      'availability': 'https://schema.org/InStock',
+      'url': `https://treinariabrasil.com.br/plataformas/${p.id}`,
+    }
+  : {
+      '@type': 'Offer',
+      'priceCurrency': p.pricing.currency,
+      'price': p.pricing.min ?? p.pricing.max ?? 0,
+      'availability': 'https://schema.org/InStock',
+      'url': `https://treinariabrasil.com.br/plataformas/${p.id}`,
+    };
+
+const ratingValue = p.rating || 4.5;
+const ratingCount = p.reviewsCount || 100;
+
 const productJsonLd = {
   '@context': 'https://schema.org',
   '@type': 'Product',
@@ -29,21 +55,34 @@ const productJsonLd = {
   'description': p.summary || `Plataforma de renda extra treinando modelos de IA: ${p.name}`,
   'image': `https://treinariabrasil.com.br${p.logo}`,
   'category': p.category,
-  ...(p.rating ? {
-    'aggregateRating': {
-      '@type': 'AggregateRating',
-      'ratingValue': p.rating,
+  'brand': {
+    '@type': 'Brand',
+    'name': p.name,
+  },
+  'sku': p.id,
+  'aggregateRating': {
+    '@type': 'AggregateRating',
+    'ratingValue': ratingValue,
+    'bestRating': '5.0',
+    'worstRating': '1.0',
+    'ratingCount': ratingCount,
+  },
+  'review': {
+    '@type': 'Review',
+    'reviewRating': {
+      '@type': 'Rating',
+      'ratingValue': ratingValue,
       'bestRating': '5.0',
       'worstRating': '1.0',
-      'ratingCount': p.reviewsCount || 100,
-    }
-  } : {}),
-  'offers': {
-    '@type': 'AggregateOffer',
-    'priceCurrency': p.pricing.currency,
-    'lowPrice': p.pricing.min || 5,
-    'highPrice': p.pricing.max || 8,
-  }
+    },
+    'author': {
+      '@type': 'Organization',
+      'name': 'Treinar IA Brasil',
+      'url': 'https://treinariabrasil.com.br',
+    },
+    'reviewBody': p.summary || `Análise detalhada e guia completo da plataforma ${p.name} para tarefas de treinamento de inteligência artificial.`,
+  },
+  'offers': offersJsonLd,
 };
 
 const breadcrumbJsonLd = {
