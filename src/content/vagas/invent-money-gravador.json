@@ -2,18 +2,19 @@
   "id": "invent-money-gravador",
   "platformId": "invent-money",
   "platformName": "Invent Money",
-  "title": "Coletor de Dados de Rotina em Vídeo",
-  "status": "em_breve",
-  "category": "Vídeo Doméstico + Comercial",
-  "remuneration": "$5 a $8 / hora",
+  "title": "Contribuinte de Dados e Tarefas de Treinamento de IA",
+  "status": "aberta",
+  "category": "Microtarefas de IA + Contribuição de Dados",
+  "remuneration": "$2 a $8 / tarefa ou hora",
   "currency": "USD",
-  "spots": "Lista de espera prioritária",
-  "updatedAt": "23/09/2026",
+  "spots": "Lotes de contribuição abertos com link de indicação oficial",
+  "updatedAt": "29/09/2026",
   "requirements": [
-    "Smartphones Android e iOS de modelos variados",
-    "Gravação de rotinas e manuseio de ferramentas ou objetos",
-    "Vídeo horizontal com resolução 1080p"
+    "Smartphones Android ou iOS de modelos variados com navegador atualizado",
+    "Maior de 18 anos de idade e residência sem conexão por VPN/proxy",
+    "Preenchimento do Perfil de Contribuinte no programa Train AI",
+    "Disponibilidade para microtarefas digitais e validação de rotinas"
   ],
-  "description": "Nova plataforma com catálogo crescente de tarefas e ampla compatibilidade com modelos de smartphones.",
-  "applyUrl": "https://inventmoney.ai/?ref=PLACEHOLDER_SEU_LINK_AQUI"
+  "description": "SuperApp internacional financiado com US$ 4M. Ganhe em USDC (Dólar Digital) direto em carteira com o programa Train AI, respondendo qualificações, missões digitais e rotulação de dados.",
+  "applyUrl": "https://app.inventmoney.com/r/4PX2QM1K"
 }

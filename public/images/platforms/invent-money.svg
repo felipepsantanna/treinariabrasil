@@ -1,11 +1,18 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 160 160" width="160" height="160">
   <defs>
     <linearGradient id="invGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" stop-color="#3B82F6" />
-      <stop offset="100%" stop-color="#06B6D4" />
+      <stop offset="0%" stop-color="#E8600A" />
+      <stop offset="100%" stop-color="#FB923C" />
+    </linearGradient>
+    <linearGradient id="invGlow" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#E8600A" stop-opacity="0.25" />
+      <stop offset="100%" stop-color="#FB923C" stop-opacity="0.05" />
     </linearGradient>
   </defs>
-  <rect width="160" height="160" rx="36" fill="#131E35" stroke="#3B82F6" stroke-width="2" stroke-opacity="0.3"/>
-  <rect x="48" y="48" width="64" height="64" rx="16" fill="url(#invGrad)" fill-opacity="0.2"/>
-  <path d="M60 80L75 95L102 65" stroke="url(#invGrad)" stroke-width="10" stroke-linecap="round" stroke-linejoin="round"/>
+  <rect width="160" height="160" rx="36" fill="#131E35" stroke="#E8600A" stroke-width="2" stroke-opacity="0.35"/>
+  <rect x="40" y="40" width="80" height="80" rx="22" fill="url(#invGlow)" stroke="#E8600A" stroke-width="1.5" stroke-opacity="0.4"/>
+  <!-- Stylized Monogram I and M in brand orange -->
+  <path d="M55 56H63V104H55V56Z" fill="url(#invGrad)"/>
+  <circle cx="59" cy="48" r="4" fill="url(#invGrad)"/>
+  <path d="M72 104V64H80L88 88L96 64H104V104H96V78L90 96H86L80 78V104H72Z" fill="url(#invGrad)"/>
 </svg>
