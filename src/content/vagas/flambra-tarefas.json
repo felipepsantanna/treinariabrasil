@@ -7,13 +7,14 @@
   "category": "Vídeo Doméstico",
   "remuneration": "R$ 25,00 / hora",
   "currency": "BRL",
-  "spots": "Novas vagas por lote quinzenal",
-  "updatedAt": "23/09/2026",
+  "spots": "Vagas abertas com link de indicação prioritária",
+  "updatedAt": "29/09/2026",
   "requirements": [
-    "Celular com câmera Full HD",
-    "Ambiente residencial bem iluminado",
-    "Conta Pix vinculada ao CPF para recebimento quinzenal"
+    "Smartphone homologado (iPhone 12+, Galaxy S ou Pixel)",
+    "Suporte de cabeça (head mount) para enquadramento egocêntrico",
+    "Duas mãos visíveis durante toda a execução da tarefa",
+    "Conta bancária brasileira com chave Pix para saque semanal"
   ],
-  "description": "Primeira plataforma brasileira voltada para a captação de dados de atividades domésticas para robótica e IA.",
-  "applyUrl": "https://flambra.com.br/?ref=PLACEHOLDER_SEU_LINK_AQUI"
+  "description": "Primeira plataforma 100% brasileira focada na coleta de dados e vídeos egocêntricos de rotinas domésticas para treino de robôs e modelos de inteligência artificial física.",
+  "applyUrl": "https://app.flambra.com/?ref=930CF9E53C"
 }

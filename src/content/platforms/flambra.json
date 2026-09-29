@@ -1,58 +1,86 @@
 {
   "id": "flambra",
-  "status": "draft",
-  "featured": false,
+  "status": "published",
+  "featured": true,
   "name": "Flambra",
   "logo": "/images/platforms/flambra.svg",
-  "rating": 4.3,
-  "reviewsCount": null,
-  "category": "Vídeo doméstico",
-  "badge": "Única brasileira",
-  "tags": ["com-indicacao"],
+  "rating": 4.5,
+  "reviewsCount": 138,
+  "category": "Vídeo doméstico egocêntrico",
+  "badge": "100% Brasileira · Pix Direto",
+  "tags": ["com-indicacao", "pagamento-pix", "100-brasileira"],
   "pricing": {
     "min": 25,
     "max": 25,
     "currency": "BRL",
     "unit": "hora",
-    "displayLabel": "R$ 25"
+    "displayLabel": "R$ 25 / hora"
   },
-  "affiliateUrl": "https://flambra.com.br/?ref=PLACEHOLDER_SEU_LINK_AQUI",
-  "summary": "Plataforma 100% brasileira focada na coleta de tarefas domésticas para modelos de visão computacional.",
+  "affiliateUrl": "https://app.flambra.com/?ref=930CF9E53C",
+  "summary": "Primeira plataforma 100% brasileira focada na coleta de vídeos egocêntricos em primeira pessoa para treino de robótica e IA, com suporte humanizado em português e repasse semanal via Pix.",
   "pros": [
-    "Interface e suporte totalmente em português",
-    "Pagamento em reais via Pix",
-    "Tarefas simples de rotina brasileira"
+    "Ecossistema e suporte humanizado 100% em português brasileiro (comunidade ativa no WhatsApp e e-mail)",
+    "Pagamento direto em Reais via Pix: sem taxas de conversão de câmbio, spread bancário ou IOF",
+    "Repasses semanais consistentes às sextas-feiras diretamente na sua chave Pix sem valor mínimo",
+    "Tarefas focadas em rotinas caseiras simples (dobrar roupas, lavar louça, organizar armários, cozinhar)",
+    "Gravações 100% em primeira pessoa: não precisa falar, narrar nem mostrar o rosto",
+    "Programa de indicação integrado que bonifica por horas aprovadas da sua rede de convidados"
   ],
   "cons": [
-    "Volume de tarefas menor comparado às plataformas internacionais",
-    "Remuneração fixa em R$ 25/hora"
+    "Remuneração fixa em Reais (R$ 25/hora), enquanto plataformas internacionais pagam em Dólar ($5 a $8/hora)",
+    "Lista seletiva de smartphones homologados (exige boa estabilização e ultra-wide; não aceita linhas de entrada como Galaxy A e M)",
+    "Exige suporte de cabeça (head mount) próprio para garantir o enquadramento egocêntrico com as duas mãos visíveis",
+    "Critérios rigorosos de aprovação técnica: vídeos com mãos cortadas, iluminação insuficiente ou com documentos à mostra são rejeitados"
   ],
   "technicalRequirements": {
-    "duration": "15 a 30 min",
-    "format": "Horizontal, 1080p",
-    "hands": "As duas mãos visíveis",
-    "zoom": "1.0 ou grande angular",
+    "duration": "15 a 30 min por tarefa",
+    "format": "Horizontal, 1080p Full HD (30 ou 60 fps)",
+    "hands": "As duas mãos visíveis e ativas na cena",
+    "zoom": "0.5x (Grande-angular / Ultra-wide) ou 1.0x calibrado",
     "compatiblePhones": {
-      "iphone": "Modelos recentes com câmera Full HD",
-      "pixel": null,
-      "galaxyS": "Linha Galaxy moderna"
+      "iphone": "Linhas iPhone 12, 13, 14, 15 e 16 (todas as variantes). Modelos anteriores ou sem lente grande-angular não homologados.",
+      "pixel": "Pixel 6, 7, 8 e 9 (e versões Pro com câmera grande-angular).",
+      "galaxyS": "Linha Galaxy S21 a S24 (e variantes Plus/Ultra) e Linha Note recente. Linhas Galaxy A e M não são aceitas."
     }
   },
   "payment": {
-    "minWithdrawal": "R$ 50",
-    "avgTime": "Quinzenal",
+    "minWithdrawal": "Sem valor mínimo",
+    "avgTime": "Semanal (sextas-feiras)",
     "methods": ["Pix"]
   },
-  "bonuses": [],
+  "bonuses": [
+    { "label": "Comissão por Indicação", "value": "Ganhos sobre horas aprovadas dos seus indicados" },
+    { "label": "Pagamento 100% em Pix", "value": "R$ 25/h líquido sem retenções de câmbio ou IOF" },
+    { "label": "Campanhas Especiais de Lote", "value": "Bonificações por entregas pontuais de volumes maiores" }
+  ],
   "support": {
-    "channel": "WhatsApp / Email",
+    "channel": "WhatsApp & E-mail (Suporte Brasileiro)",
     "active": true
   },
   "signupSteps": [
-    "Acesse o link de cadastro oficial",
-    "Complete os dados de perfil e aparelho",
-    "Envie vídeo teste de rotina",
-    "Inicie as gravações das campanhas abertas"
+    "Acesse a plataforma oficial através do link de indicação oficial (app.flambra.com)",
+    "Cadastre seu e-mail e dados básicos (recomenda-se e-mail novo e exclusivo para o projeto)",
+    "Valide o modelo do seu celular na lista de smartphones homologados",
+    "Configure o suporte de cabeça (head mount) para ângulo de visão em primeira pessoa",
+    "Grave e envie o vídeo de teste seguindo o guia com ambas as mãos visíveis",
+    "Após a validação da sua amostra pela equipe, receba acesso aos lotes e envie suas tarefas semanais"
   ],
-  "faq": []
+  "faq": [
+    {
+      "question": "Como recebo o pagamento da Flambra no Brasil?",
+      "answer": "Os saques são creditados diretamente via Pix na sua conta bancária brasileira cadastrada, geralmente toda sexta-feira, sem taxas de câmbio, spread bancário ou necessidade de carteiras internacionais intermediárias."
+    },
+    {
+      "question": "Preciso mostrar meu rosto ou falar durante as gravações?",
+      "answer": "Não. Os vídeos são gravados estritamente na perspectiva de primeira pessoa (egocêntrica), com o celular fixado na cabeça por um suporte. Apenas os movimentos das suas mãos e objetos interagindo no ambiente devem aparecer, em silêncio ou som ambiente natural."
+    },
+    {
+      "question": "Qualquer celular é aceito na Flambra?",
+      "answer": "Não. Para atender ao rigoroso controle de qualidade das empresas de robótica e inteligência artificial, a Flambra exige celulares homologados com câmera Full HD e sensor ultra-wide (como iPhones a partir do 12 e Samsung linha Galaxy S). Aparelhos de entrada ou linhas como Galaxy A e M não são homologados."
+    },
+    {
+      "question": "É necessário pagar alguma taxa para começar?",
+      "answer": "Nunca! A Flambra é uma plataforma de trabalho legítima e o cadastro é 100% gratuito. Jamais pague nenhuma taxa de liberação, depósito inicial ou ativação de conta."
+    }
+  ]
 }
