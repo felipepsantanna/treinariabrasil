@@ -7,14 +7,15 @@
   "rating": 4.3,
   "reviewsCount": 94,
   "category": "Vídeo doméstico egocêntrico (POV)",
-  "badge": "Foco em Robótica · Em Dólar",
-  "tags": ["com-indicacao", "pagamento-dolar", "robotica-ia", "treino-pov"],
+  "badge": null,
+  "order": 3,
+  "tags": ["com-indicacao", "sem-bonus"],
   "pricing": {
     "min": 4,
     "max": 7,
     "currency": "USD",
     "unit": "hora",
-    "displayLabel": "$4 a $7 / hora"
+    "displayLabel": "$4 a $7"
   },
   "affiliateUrl": "https://app.claru.ai/signup?ref=ref_syjd0amg6gx4",
   "summary": "Plataforma internacional de inteligência artificial física especializada na coleta de vídeos em primeira pessoa (POV) para treinamento de robôs e visão computacional, com pagamentos em dólar por tarefas domésticas aprovadas.",

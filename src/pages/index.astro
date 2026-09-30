@@ -12,11 +12,11 @@ import ComparisonSection from '@/components/home/ComparisonSection.astro';
 import TestimonialsSection from '@/components/home/TestimonialsSection.astro';
 import FAQAccordion, { faqSchema } from '@/components/home/FAQAccordion.astro';
 
-// Obter apenas plataformas publicadas, ordenando featured primeiro
+// Obter apenas plataformas publicadas, ordenando de melhor para pior (ordem configurada)
 const allPlatforms = await getCollection('platforms');
 const publishedPlatforms = allPlatforms
   .filter((p) => p.data.status === 'published')
-  .sort((a, b) => (b.data.featured ? 1 : 0) - (a.data.featured ? 1 : 0));
+  .sort((a, b) => (a.data.order ?? 99) - (b.data.order ?? 99));
 
 // Metatags SEO
 const title = "Treinar IA: Ganhe em Dólar com Tarefas do Dia a Dia"; // 50 chars (<60)
@@ -53,20 +53,20 @@ const combinedJsonLd = [organizationSchema, faqSchema];
   <StepByStep />
 
   <!-- 6. Cards de Plataformas Homologadas -->
-  <section id="plataformas-grid" class="py-16 lg:py-24 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-    <div class="text-center max-w-3xl mx-auto mb-14">
-      <span class="text-xs font-bold uppercase tracking-wider text-emerald-800 bg-emerald-50 px-3 py-1 rounded-full border border-emerald-200">
-        Curadoria Especializada
+  <section id="plataformas-grid" class="py-16 lg:py-24 max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="mb-10 text-left">
+      <span class="text-xs font-bold uppercase tracking-widest text-emerald-700">
+        01 · PLATAFORMAS · {publishedPlatforms.length} OPÇÕES TESTADAS
       </span>
-      <h2 class="text-3xl sm:text-4xl font-extrabold text-slate-900 mt-4">
-        Plataformas que Pagam para Treinar IA
+      <h2 class="text-3xl sm:text-5xl font-black text-slate-900 mt-2 tracking-tight">
+        As plataformas que eu uso.
       </h2>
-      <p class="text-slate-600 text-base sm:text-lg mt-2 font-normal">
-        Avaliamos e selecionamos apenas as opções confiáveis com saques testados e comprovados para o Brasil.
+      <p class="text-slate-600 text-base sm:text-lg mt-3 font-normal max-w-3xl leading-relaxed">
+        Testei, gravei e saquei em cada uma. Clique num card pra ver o review completo, os requisitos técnicos, os bônus e o passo a passo pra se cadastrar.
       </p>
     </div>
 
-    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+    <div class="flex flex-col gap-5 sm:gap-6">
       {publishedPlatforms.map((platform) => (
         <PlatformCard platform={platform.data} />
       ))}

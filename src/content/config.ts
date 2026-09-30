@@ -12,6 +12,7 @@ const platforms = defineCollection({
     reviewsCount: z.number().nullable().optional(),
     category: z.string(),
     badge: z.string().nullable(),
+    order: z.number().optional(),
     tags: z.array(z.string()),
     pricing: z.object({
       min: z.number().nullable(),

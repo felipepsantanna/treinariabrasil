@@ -8,13 +8,14 @@
   "reviewsCount": 182,
   "category": "Vídeo doméstico + comercial",
   "badge": "O que estou mais usando",
+  "order": 1,
   "tags": ["com-indicacao", "tem-bonus"],
   "pricing": {
-    "min": 5,
-    "max": 8,
+    "min": 3,
+    "max": 13,
     "currency": "USD",
     "unit": "hora",
-    "displayLabel": "$5 a $8"
+    "displayLabel": "$3 a $13"
   },
   "affiliateUrl": "https://ai.hub.xyz/r/TV7MT7M4",
   "summary": "Plataforma mais estabelecida e madura do nicho, com histórico consistente de pagamento.",

@@ -11,122 +11,145 @@ const formatPricing = () => {
   if (platform.pricing.displayLabel) return platform.pricing.displayLabel;
   if (platform.pricing.min && platform.pricing.max) {
     const symbol = platform.pricing.currency === 'USD' ? '$' : 'R$ ';
-    return `${symbol}${platform.pricing.min} a ${symbol}${platform.pricing.max} / ${platform.pricing.unit}`;
+    return `${symbol}${platform.pricing.min} a ${symbol}${platform.pricing.max}`;
   }
   if (platform.pricing.max) {
     const symbol = platform.pricing.currency === 'USD' ? '$' : 'R$ ';
-    return `até ${symbol}${platform.pricing.max} / ${platform.pricing.unit}`;
+    return `${symbol}${platform.pricing.max}`;
   }
   return 'A consultar';
 };
+
+const tagLabelMap: Record<string, { label: string; style: 'green' | 'stone' }> = {
+  'com-indicacao': { label: 'Com indicação', style: 'green' },
+  'tem-bonus': { label: 'Tem bônus', style: 'green' },
+  'sem-bonus': { label: 'Sem bônus', style: 'stone' },
+  'pagamento-pix': { label: 'Pix Direto', style: 'green' },
+  'pagamento-dolar': { label: 'Em Dólar', style: 'green' },
+  '100-brasileira': { label: '100% Brasileira', style: 'stone' },
+  'aceita-android': { label: 'Aceita Android', style: 'stone' },
+  'robotica-ia': { label: 'Robótica IA', style: 'stone' },
+  'treino-pov': { label: 'Treino POV', style: 'stone' },
+};
+
+const formattedTags = platform.tags.map((tag) => {
+  if (tagLabelMap[tag]) return tagLabelMap[tag];
+  return {
+    label: tag.replace(/-/g, ' ').replace(/\b\w/g, (l) => l.toUpperCase()),
+    style: 'stone' as const,
+  };
+});
 ---
 
-<div class="bg-white rounded-2xl p-6 sm:p-7 flex flex-col justify-between relative group border border-slate-200/90 hover:border-emerald-300 hover:shadow-lg transition-all shadow-sm">
-  
-  <!-- Top Badge / Featured status -->
-  <div class="flex items-center justify-between gap-2 mb-4">
-    {platform.badge ? (
-      <span class="inline-flex items-center px-3 py-1 rounded-full text-xs font-bold bg-emerald-50 text-emerald-800 border border-emerald-200 shadow-sm">
-        <span class="w-2 h-2 rounded-full bg-emerald-500 mr-2"></span>
+<div
+  class={`relative rounded-3xl p-5 sm:p-7 bg-white transition-all duration-200 group hover:shadow-lg ${
+    platform.badge ? 'border-2 border-emerald-500' : 'border border-slate-200/90 hover:border-emerald-300'
+  }`}
+>
+  <!-- Highlight Top-Right Pill Badge (e.g., O QUE ESTOU MAIS USANDO) -->
+  {platform.badge && (
+    <div class="absolute -top-3.5 right-6 sm:right-8 z-20 pointer-events-none">
+      <span class="inline-flex items-center px-3.5 py-1 rounded-full text-[10px] sm:text-[11px] font-black uppercase tracking-wider bg-emerald-600 text-white shadow-sm">
         {platform.badge}
       </span>
-    ) : (
-      <span class="text-xs text-slate-600 font-semibold px-2.5 py-1 rounded bg-slate-100 border border-slate-200">
-        {platform.category}
-      </span>
-    )}
-
-    {platform.rating && (
-      <div class="flex items-center gap-1.5 bg-amber-50 border border-amber-200 px-2.5 py-1 rounded-md text-xs font-bold text-amber-700">
-        <svg class="w-4 h-4 fill-current text-amber-500" viewBox="0 0 20 20">
-          <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/>
-        </svg>
-        <span>{platform.rating.toFixed(1)}</span>
-      </div>
-    )}
-  </div>
-
-  <!-- Header: Logo & Name -->
-  <div class="flex items-start gap-4 mb-4">
-    <div class="w-16 h-16 rounded-xl bg-slate-50 p-2 flex items-center justify-center flex-shrink-0 border border-slate-200 group-hover:border-emerald-300 transition-colors">
-      <img
-        src={platform.logo}
-        alt={`Logo da plataforma ${platform.name}`}
-        class="w-full h-full object-contain"
-        loading="lazy"
-        width="64"
-        height="64"
-      />
-    </div>
-    <div>
-      <h3 class="text-2xl font-extrabold text-slate-900 group-hover:text-emerald-700 transition-colors">
-        <a href={`/plataformas/${platform.id}`}>
-          {platform.name}
-        </a>
-      </h3>
-      <p class="text-sm text-slate-600 mt-1 line-clamp-2 font-normal">{platform.summary || platform.category}</p>
-    </div>
-  </div>
-
-  <!-- Pricing Highlight Box (Clean Light) -->
-  <div class="my-4 p-4 rounded-xl bg-slate-50 border border-slate-200">
-    <span class="block text-xs text-slate-500 uppercase font-bold tracking-wider">Remuneração Média</span>
-    <div class="flex items-baseline gap-2 mt-1">
-      <span class="text-3xl font-black font-display text-emerald-600">
-        {formatPricing()}
-      </span>
-      {platform.payment.avgTime && (
-        <span class="text-xs text-slate-500 font-medium">· Saque {platform.payment.avgTime.toLowerCase()}</span>
-      )}
-    </div>
-    {platform.payment.methods.length > 0 && (
-      <div class="flex items-center gap-2 mt-2.5 pt-2.5 border-t border-slate-200 text-xs text-slate-600">
-        <span class="font-medium text-slate-500">Recebimento:</span>
-        {platform.payment.methods.map((method) => (
-          <span class="px-2 py-0.5 rounded bg-white text-slate-700 font-bold border border-slate-200">{method}</span>
-        ))}
-        {platform.payment.minWithdrawal && (
-          <span class="text-slate-500 font-medium ml-auto">Mín. {platform.payment.minWithdrawal}</span>
-        )}
-      </div>
-    )}
-  </div>
-
-  <!-- Tags -->
-  {platform.tags.length > 0 && (
-    <div class="flex flex-wrap gap-1.5 my-2">
-      {platform.tags.map((tag) => (
-        <span class="text-xs text-slate-600 bg-slate-100 px-2.5 py-1 rounded-md border border-slate-200 font-medium">
-          #{tag.replace('-', ' ')}
-        </span>
-      ))}
     </div>
   )}
 
-  <!-- Action Buttons -->
-  <div class="grid grid-cols-2 gap-3 mt-5 pt-4 border-t border-slate-100">
-    <a
-      href={`/plataformas/${platform.id}`}
-      class="inline-flex items-center justify-center py-2.5 px-3 rounded-xl text-xs font-bold text-slate-700 bg-white hover:bg-slate-50 transition-colors border border-slate-300 shadow-sm"
-    >
-      Ver detalhes
-      <svg class="w-4 h-4 ml-1.5 text-slate-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M9 5l7 7-7 7" />
-      </svg>
-    </a>
+  <!-- Entire Card Clickable Link -->
+  <a
+    href={`/plataformas/${platform.id}`}
+    class="absolute inset-0 z-0 rounded-3xl"
+    aria-label={`Ver review e detalhes de ${platform.name}`}
+  ></a>
 
-    <!-- PLACEHOLDER: O link de cadastro direciona para o affiliateUrl da plataforma -->
-    <a
-      href={platform.affiliateUrl || `/plataformas/${platform.id}`}
-      target={platform.affiliateUrl ? "_blank" : "_self"}
-      rel={platform.affiliateUrl ? "noopener noreferrer" : ""}
-      class="inline-flex items-center justify-center py-2.5 px-3 rounded-xl text-xs font-bold text-white bg-emerald-600 hover:bg-emerald-700 transition-colors shadow-sm shadow-emerald-600/20"
-    >
-      Cadastrar
-      <svg class="w-4 h-4 ml-1.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
-      </svg>
-    </a>
+  <div class="flex flex-col md:flex-row md:items-center justify-between gap-5 sm:gap-6 relative z-10 pointer-events-none">
+    
+    <!-- Left Section: Logo, Title, Rating/Category, Tags -->
+    <div class="flex items-start sm:items-center gap-4 sm:gap-5 min-w-0 flex-1">
+      <div class="w-14 h-14 sm:w-16 sm:h-16 rounded-2xl bg-stone-50 border border-stone-200/80 p-2.5 flex items-center justify-center flex-shrink-0 group-hover:border-emerald-300 transition-colors shadow-sm">
+        <img
+          src={platform.logo}
+          alt={`Logo da plataforma ${platform.name}`}
+          class="w-full h-full object-contain"
+          loading="lazy"
+          width="64"
+          height="64"
+        />
+      </div>
+
+      <div class="space-y-1.5 min-w-0 flex-1">
+        <h3 class="text-xl sm:text-2xl font-black text-slate-900 tracking-tight group-hover:text-emerald-700 transition-colors">
+          <span class="pointer-events-auto">
+            <a href={`/plataformas/${platform.id}`} class="hover:underline">
+              {platform.name}
+            </a>
+          </span>
+        </h3>
+
+        <!-- Rating & Category -->
+        <div class="flex items-center gap-1.5 flex-wrap text-xs sm:text-sm text-slate-600">
+          {platform.rating && (
+            <>
+              <div class="flex items-center text-emerald-600" aria-label={`Nota: ${platform.rating.toFixed(1)} de 5`}>
+                {[1, 2, 3, 4, 5].map((star) => (
+                  <svg
+                    class={`w-3.5 h-3.5 ${
+                      star <= Math.round(platform.rating || 0)
+                        ? 'fill-emerald-500 text-emerald-500'
+                        : 'fill-slate-200 text-slate-200'
+                    }`}
+                    viewBox="0 0 20 20"
+                  >
+                    <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                  </svg>
+                ))}
+              </div>
+              <span class="font-bold text-slate-800 text-xs sm:text-sm">{platform.rating.toFixed(1)}</span>
+              <span class="text-slate-300">·</span>
+            </>
+          )}
+          <span class="text-slate-600 font-medium truncate">{platform.category}</span>
+        </div>
+
+        <!-- Pill Tags (Com indicação, Tem bônus, etc.) -->
+        {formattedTags.length > 0 && (
+          <div class="flex flex-wrap items-center gap-1.5 pt-0.5">
+            {formattedTags.map((tag) => (
+              <span
+                class={`inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-semibold ${
+                  tag.style === 'green'
+                    ? 'bg-emerald-50 text-emerald-800 border border-emerald-200/80'
+                    : 'bg-stone-100 text-stone-700 border border-stone-200/90'
+                }`}
+              >
+                {tag.label}
+              </span>
+            ))}
+          </div>
+        )}
+      </div>
+    </div>
+
+    <!-- Right Section: Price & Action CTA Button -->
+    <div class="flex items-center justify-between md:flex-col md:items-end md:justify-center gap-3 sm:gap-2 flex-shrink-0 border-t md:border-t-0 pt-3 md:pt-0 border-slate-100">
+      <div class="text-left md:text-right">
+        <div class="text-2xl sm:text-3xl font-black text-slate-900 tracking-tight font-display">
+          {formatPricing()}
+        </div>
+        <div class="text-[10px] sm:text-xs font-extrabold text-slate-500 uppercase tracking-wider mt-0.5">
+          {platform.pricing.currency === 'BRL' ? 'BRL POR HORA' : 'USD POR HORA'}
+        </div>
+      </div>
+
+      <div class="pointer-events-auto">
+        <a
+          href={`/plataformas/${platform.id}`}
+          class="inline-flex items-center justify-center px-5 py-2.5 rounded-full text-xs sm:text-sm font-bold text-slate-800 bg-stone-100 hover:bg-stone-200 border border-stone-200/90 transition-colors shadow-sm"
+        >
+          Ver detalhes +
+        </a>
+      </div>
+    </div>
+
   </div>
-
 </div>
