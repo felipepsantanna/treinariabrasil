@@ -28,6 +28,32 @@ const { title, description, canonical, image, type, jsonLd } = Astro.props;
       gtag('js', new Date());
 
       gtag('config', 'AW-18487107650');
+
+      function gtag_report_conversion(url) {
+        var navigated = false;
+        var callback = function () {
+          if (!navigated) {
+            navigated = true;
+            if (typeof(url) != 'undefined' && url) {
+              window.location = url;
+            }
+          }
+        };
+        // Fallback para evitar travamento em caso de bloqueadores de anúncio ou conexão lenta
+        setTimeout(callback, 800);
+        try {
+          gtag('event', 'conversion', {
+              'send_to': 'AW-18487107650/pf9CCJ_q7IwdEMLAq-9E',
+              'value': 1.0,
+              'currency': 'BRL',
+              'event_callback': callback
+          });
+        } catch (e) {
+          callback();
+        }
+        return false;
+      }
+      window.gtag_report_conversion = gtag_report_conversion;
     </script>
 
     <SEO
