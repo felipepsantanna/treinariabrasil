@@ -36,6 +36,7 @@
       'hub.xyz',
       'flambra.com',
       'inventmoney.com',
+      'crowtado.com',
       'mindrift.ai'
     ];
 
@@ -62,6 +63,7 @@
         if (p === 'claru') return 'claru';
         if (p === 'flambra') return 'flambra';
         if (p === 'invent-money' || p === 'inventmoney') return 'invent-money';
+        if (p === 'crowtado') return 'crowtado';
         if (p === 'mindrift') return 'mindrift';
         return p;
       }
@@ -70,6 +72,7 @@
         if (urlStr.indexOf('hub.xyz') !== -1) return 'hub';
         if (urlStr.indexOf('flambra') !== -1) return 'flambra';
         if (urlStr.indexOf('inventmoney') !== -1) return 'invent-money';
+        if (urlStr.indexOf('crowtado') !== -1) return 'crowtado';
         if (urlStr.indexOf('mindrift') !== -1) return 'mindrift';
       }
       return 'outros';

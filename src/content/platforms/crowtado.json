@@ -1,0 +1,90 @@
+{
+  "id": "crowtado",
+  "status": "published",
+  "featured": true,
+  "name": "Crowtado",
+  "logo": "/images/platforms/crowtado.svg",
+  "rating": 4.4,
+  "reviewsCount": 86,
+  "category": "Voz, Vídeo POV e Fotos",
+  "badge": "Voz e Fotos no Celular",
+  "order": 3,
+  "tags": ["com-indicacao", "tem-bonus"],
+  "pricing": {
+    "min": 10,
+    "max": 40,
+    "currency": "USD",
+    "unit": "hora",
+    "displayLabel": "$10 a $40"
+  },
+  "affiliateUrl": "https://www.crowtado.com/sign-up?ref=F6LVBCM9",
+  "summary": "Plataforma internacional de inteligência artificial especializada na coleta de dados multimodais para alimentar novos modelos de IA de linguagem e visão computacional. Permite faturar em dólar americano (USD) diretamente pelo smartphone gravando amostras de voz (leitura de scripts, conversas cotidianas e dialetos), vídeos curtos em primeira pessoa (POV) e fotos de objetos e fachadas comerciais.",
+  "pros": [
+    "Variedade multimodal de tarefas: opção de escolher entre gravações de voz (áudios curtos, scripts e conversas), vídeos do cotidiano (POV) e fotos simples de objetos ou estabelecimentos",
+    "Forte foco em tarefas de áudio e voz: ideal para quem prefere falar, narrar ou ler roteiros curtos sem a obrigação de gravar vídeos corporais contínuos",
+    "Acessível com a grande maioria dos smartphones: sem exigências severas de aparelhos topo de linha específicos ou suportes de cabeça/peitoral para tarefas de voz e fotos",
+    "Remuneração em moeda forte (Dólar - USD) com taxas atrativas de até US$ 40/hora dependendo do tipo de tarefa ou raridade do dialeto",
+    "Saque mínimo acessível a partir de US$ 10, viabilizando retiradas mais rápidas do que plataformas que exigem limites elevados",
+    "Múltiplos métodos de pagamento internacional (PayPal, Wise, Payoneer, Airtm e transferência) facilmente convertíveis em Reais via Pix no Brasil",
+    "Programa de indicação ativo e vantajoso: bonificação de US$ 10 por amigo indicado que completar US$ 50 em tarefas concluídas"
+  ],
+  "cons": [
+    "Processo de auditoria e controle de qualidade: todas as submissões de voz, vídeo e foto passam por análise antes do saldo ser liberado para saque",
+    "Exigência de ambiente silencioso para tarefas de áudio: ruídos de fundo, ecos ou respiração pesada podem invalidar gravações de voz",
+    "Fila e catálogo de tarefas com rotatividade variável: a liberação de novos lotes e projetos depende da demanda das empresas de IA por idioma e região geográfica",
+    "Pagamentos não são feitos diretamente via Pix pela plataforma: o recebimento é em USD via provedores internacionais (como PayPal ou Wise), necessitando de transferência posterior para sua conta bancária"
+  ],
+  "technicalRequirements": {
+    "duration": "2 a 15 min (áudios e fotos) e até 30 min (vídeos POV)",
+    "format": "Interface Web responsiva ou App móvel (Android & iOS)",
+    "hands": "Mãos livres em gravações de vídeo; sem restrição em áudios e fotos",
+    "zoom": "Câmera padrão com boa nitidez e microfone limpo do smartphone",
+    "compatiblePhones": {
+      "iphone": "iPhone XR, 11 ou superior com microfone em perfeito estado",
+      "pixel": "Google Pixel 3 ou superior",
+      "galaxyS": "Samsung Galaxy linhas S, Note e linha A recente, além de Xiaomi e Motorola com boa captação de voz"
+    }
+  },
+  "payment": {
+    "minWithdrawal": "$10 (USD)",
+    "avgTime": "1 a 3 dias úteis",
+    "methods": ["PayPal", "Wise", "Payoneer", "Airtm", "Transferência Bancária"]
+  },
+  "bonuses": [
+    { "label": "Bônus por Indicação", "value": "US$ 10 direto no saldo a cada amigo que acumular US$ 50 em tarefas" },
+    { "label": "Projetos de Voz & Dialeto", "value": "Remunerações turbinadas de até $40/h para amostras de fala e línguas específicas" }
+  ],
+  "support": {
+    "channel": "Central de Ajuda & E-mail Oficial (support@crowtado.com)",
+    "active": true
+  },
+  "signupSteps": [
+    "Acesse o site oficial da Crowtado pelo link de convite: https://www.crowtado.com/sign-up?ref=F6LVBCM9",
+    "Crie sua conta gratuita utilizando seu e-mail e valide o código de confirmação recebido",
+    "Preencha seu Perfil de Colaborador informando seus idiomas (Português - Brasil), sotaques e smartphones disponíveis",
+    "Acesse o catálogo de tarefas ('Tasks') e explore as opções abertas de Voz, Vídeo ou Fotografias",
+    "Siga atentamente os critérios de gravação de cada tarefa, faça sua submissão e solicite o resgate quando acumular o mínimo de US$ 10"
+  ],
+  "faq": [
+    {
+      "question": "O que é a Crowtado e qual é o seu site oficial?",
+      "answer": "A Crowtado é uma plataforma global de coleta e treinamento de inteligência artificial com sede institucional em crowtado.com. Ela remunera usuários em todo o mundo para gravar pequenas amostras de voz, vídeos do dia a dia e fotos usando apenas a câmera e o microfone do smartphone."
+    },
+    {
+      "question": "Como recebo o dinheiro da Crowtado no Brasil via Pix?",
+      "answer": "A Crowtado realiza pagamentos em Dólares americanos (USD). Ao atingir o limite mínimo de US$ 10, você pode solicitar a transferência para serviços internacionais consolidados como PayPal, Wise, Payoneer ou Airtm. Uma vez recebido na sua conta Wise ou PayPal, você pode transferir instantaneamente para a sua conta bancária brasileira via Pix."
+    },
+    {
+      "question": "Preciso ter equipamento caro ou microfone profissional?",
+      "answer": "Não. Todo o trabalho pode ser executado com um smartphone comum de boa qualidade. Para as tarefas de voz, basta estar em um cômodo silencioso e sem eco, utilizando o microfone do próprio celular ou fone com microfone. Para fotos e vídeos, basta boa iluminação natural e lente limpa."
+    },
+    {
+      "question": "Posso participar fazendo apenas tarefas de voz ou fotos?",
+      "answer": "Sim! Diferente de plataformas focadas exclusivamente em gravação de vídeo contínua, a Crowtado possui categorias independentes de Voz, Vídeo e Fotos. Você pode escolher livremente realizar apenas as tarefas com as quais se sente mais confortável."
+    },
+    {
+      "question": "O cadastro na Crowtado é gratuito?",
+      "answer": "Sim, o cadastro é 100% gratuito. Nunca realize pagamentos para se cadastrar ou receber tarefas. O acesso seguro e oficial é disponibilizado diretamente pelo link de indicação."
+    }
+  ]
+}
