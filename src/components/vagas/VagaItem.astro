@@ -64,6 +64,9 @@ const statusBadge = {
       href={vaga.applyUrl}
       onclick="return gtag_report_conversion(this.href);"
       data-affiliate-link="true"
+      data-platform={vaga.platformId === 'hub-xyz' ? 'hub' : vaga.platformId}
+      data-position="list"
+      data-cta="candidatar_se"
       target="_blank"
       rel="noopener noreferrer"
       class="inline-flex items-center gap-1.5 font-bold text-sm text-emerald-600 hover:text-emerald-700 transition-colors"

@@ -6,6 +6,7 @@ export interface Props {
 }
 
 const { platform } = Astro.props;
+const normalizedPlatformId = platform.id === 'hub-xyz' ? 'hub' : platform.id;
 
 const formatPricing = () => {
   if (platform.pricing.displayLabel) return platform.pricing.displayLabel;
@@ -84,6 +85,9 @@ const formatPricing = () => {
           href={platform.affiliateUrl || '#'}
           onclick="return gtag_report_conversion(this.href);"
           data-affiliate-link="true"
+          data-platform={normalizedPlatformId}
+          data-position="hero"
+          data-cta="quero_me_cadastrar"
           target={platform.affiliateUrl ? "_blank" : "_self"}
           rel={platform.affiliateUrl ? "noopener noreferrer" : ""}
           class="w-full sm:w-auto inline-flex items-center justify-center px-6 py-3 rounded-xl text-sm font-bold text-white bg-emerald-600 hover:bg-emerald-700 transition-all shadow-md shadow-emerald-600/20 hover:shadow-lg"
@@ -314,6 +318,9 @@ const formatPricing = () => {
         href={platform.affiliateUrl || '#'}
         onclick="return gtag_report_conversion(this.href);"
         data-affiliate-link="true"
+        data-platform={normalizedPlatformId}
+        data-position="bottom"
+        data-cta="quero_me_cadastrar"
         target={platform.affiliateUrl ? "_blank" : "_self"}
         rel={platform.affiliateUrl ? "noopener noreferrer" : ""}
         class="inline-flex items-center justify-center px-8 py-4 rounded-xl text-base font-bold text-white bg-emerald-600 hover:bg-emerald-700 transition-all shadow-md shadow-emerald-600/20 hover:scale-105"

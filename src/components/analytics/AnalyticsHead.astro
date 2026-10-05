@@ -1,0 +1,134 @@
+---
+// Tracking centralizado de Afiliados e UTMs
+---
+
+<!-- Treinar IA Brasil - Tracking Direto de Afiliados e Tráfego -->
+<script is:inline>
+  (function () {
+    // 1. Captura e persistência volátil de parâmetros de campanha (UTMs)
+    try {
+      var searchParams = new URLSearchParams(window.location.search);
+      var utmSource = searchParams.get('utm_source');
+      var utmMedium = searchParams.get('utm_medium');
+      var utmCampaign = searchParams.get('utm_campaign');
+
+      if (utmSource) sessionStorage.setItem('tb_utm_source', utmSource);
+      if (utmMedium) sessionStorage.setItem('tb_utm_medium', utmMedium);
+      if (utmCampaign) sessionStorage.setItem('tb_utm_campaign', utmCampaign);
+    } catch (e) {
+      // Falha silenciosa para navegadores com restrições estritas
+    }
+
+    function getTrafficParam(name) {
+      try {
+        var searchParams = new URLSearchParams(window.location.search);
+        var directVal = searchParams.get('utm_' + name);
+        if (directVal) return directVal;
+        return sessionStorage.getItem('tb_utm_' + name) || undefined;
+      } catch (e) {
+        return undefined;
+      }
+    }
+
+    // Domínios conhecidos de plataformas afiliadas
+    var affiliateDomains = [
+      'claru.ai',
+      'hub.xyz',
+      'flambra.com',
+      'inventmoney.com',
+      'mindrift.ai'
+    ];
+
+    function isAffiliateUrl(urlStr) {
+      if (!urlStr) return false;
+      try {
+        var parsed = new URL(urlStr, window.location.origin);
+        // Links internos, mailto, tel ou javascript nunca disparam affiliate_click
+        if (parsed.origin === window.location.origin) return false;
+        if (parsed.protocol !== 'http:' && parsed.protocol !== 'https:') return false;
+
+        return affiliateDomains.some(function (domain) {
+          return parsed.hostname.indexOf(domain) !== -1;
+        });
+      } catch (e) {
+        return false;
+      }
+    }
+
+    function normalizePlatform(raw, urlStr) {
+      if (raw) {
+        var p = raw.toLowerCase().trim();
+        if (p === 'hub-xyz' || p === 'hub') return 'hub';
+        if (p === 'claru') return 'claru';
+        if (p === 'flambra') return 'flambra';
+        if (p === 'invent-money' || p === 'inventmoney') return 'invent-money';
+        if (p === 'mindrift') return 'mindrift';
+        return p;
+      }
+      if (urlStr) {
+        if (urlStr.indexOf('claru') !== -1) return 'claru';
+        if (urlStr.indexOf('hub.xyz') !== -1) return 'hub';
+        if (urlStr.indexOf('flambra') !== -1) return 'flambra';
+        if (urlStr.indexOf('inventmoney') !== -1) return 'invent-money';
+        if (urlStr.indexOf('mindrift') !== -1) return 'mindrift';
+      }
+      return 'outros';
+    }
+
+    var lastClickTimestamp = 0;
+    var lastClickedHref = '';
+
+    // Listener global via event delegation para captura precisa
+    document.addEventListener('click', function (event) {
+      var target = event.target;
+      if (!target) return;
+
+      var anchor = target.closest('a');
+      if (!anchor || !anchor.href) return;
+
+      var href = anchor.href;
+      var hasAffiliateAttr = anchor.getAttribute('data-affiliate-link') === 'true';
+      var isAffiliate = hasAffiliateAttr || isAffiliateUrl(href);
+
+      // Links internos ou não-afiliados são ignorados sem interferência
+      if (!isAffiliate) return;
+
+      // Prevenção contra disparos duplicados em múltiplos cliques rápidos (<500ms)
+      var now = Date.now();
+      if (href === lastClickedHref && (now - lastClickTimestamp) < 500) {
+        return;
+      }
+      lastClickTimestamp = now;
+      lastClickedHref = href;
+
+      var rawPlatform = anchor.getAttribute('data-platform');
+      var platform = normalizePlatform(rawPlatform, href);
+      var position = anchor.getAttribute('data-position') || 'content';
+      var cta = anchor.getAttribute('data-cta') || 'quero_me_cadastrar';
+      var page = window.location.pathname || '/';
+
+      var eventPayload = {
+        platform: platform,
+        page: page,
+        position: position,
+        cta: cta
+      };
+
+      var source = getTrafficParam('source');
+      var medium = getTrafficParam('medium');
+      var campaign = getTrafficParam('campaign');
+
+      if (source) eventPayload.source = source;
+      if (medium) eventPayload.medium = medium;
+      if (campaign) eventPayload.campaign = campaign;
+
+      // 1. Disparo direto no Google Analytics 4 (GA4)
+      if (typeof window.gtag === 'function') {
+        window.gtag('event', 'affiliate_click', eventPayload);
+      }
+
+      // 2. Disparo na Camada de Dados (dataLayer) para integrações internas
+      window.dataLayer.push(Object.assign({ event: 'affiliate_click' }, eventPayload));
+    }, true);
+  })();
+</script>
